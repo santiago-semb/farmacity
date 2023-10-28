@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Farmacity</title>
     <link rel="stylesheet" href="assets/styles/styles.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,19 +15,86 @@
 </head>
 <body>       
     <header id="header">
-        <h1><img src="assets/img/logo-farmacity.png" id="logo-farmacity" alt="logo-farmacity"></h1>
-        <ul>
-            <li id="li-menu"><a href="#home" style="text-decoration: none;">Inicio</a></li>
+        <div class="icon-container">
+          <h1><img src="assets/img/logo-farmacity.png" class="icon" id="logo-farmacity" alt="logo-farmacity"></h1>
+          <span id="span-buscador">
+            <input type="text" class="icons" id="buscador" placeholder="Buscar producto o categoría"><i id="icon-search" class="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <span>
+            <div class="dropdown">
+              <span class="dropbtn dropbtn-productos">Productos</span>
+              <div class="dropdown-content">
+                <a href="#" style="text-decoration: none;" class="productos">Opción 1</a>
+                <a href="#" style="text-decoration: none;" class="productos">Opción 2</a>
+                <a href="#" style="text-decoration: none;" class="productos">Opción 3</a>
+                <a href="#" style="text-decoration: none;" class="productos">Opción 4</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <span class="dropbtn">Turnos</span>
+              <div class="dropdown-content">
+                <a href="#" style="text-decoration: none;">Vacunación</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <span class="dropbtn">Menú</span>
+              <div class="dropdown-content">
+                <a href="#" style="text-decoration: none;">Opción 1</a>
+                <a href="#" style="text-decoration: none;">Opción 2</a>
+                <a href="#" style="text-decoration: none;">Opción 3</a>
+                <a href="#" style="text-decoration: none;">Opción 4</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <span class="dropbtn">Menú</span>
+              <div class="dropdown-content">
+                <a href="#" style="text-decoration: none;">Opción 1</a>
+                <a href="#" style="text-decoration: none;">Opción 2</a>
+                <a href="#" style="text-decoration: none;">Opción 3</a>
+                <a href="#" style="text-decoration: none;">Opción 4</a>
+              </div>
+            </div>
+            
+          </span>
+          <span>
+            <a href="#"><img src="./assets/img/tufarmacity.png" alt="tu-farmacity" id="logo-tufarmacity"></a>
+          </span>
+          <!--<a href="" class="icon iconos" id="mis-pedidos"><i style="margin-right: 5px;" class="fa-solid fa-truck-fast"></i>Mis pedidos</a>
+          -->
+        </div>
+        <ul class="ul-carrousel">
+            <!--<li id="li-menu"><a href="#home" style="text-decoration: none;">Inicio</a></li>
             <li id="li-menu"><a href="#news" style="text-decoration: none;">Noticias</a></li>
             <li id="li-menu"><a href="#contact" style="text-decoration: none;">Contacto</a></li>
             <li id="li-menu"><a href="#about" style="text-decoration: none;">Acerca de</a></li>
-            <li id="float-right"><a href="#carrito"><span id="hora"></span></a></li>
+            -->
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            
+              <div class="carousel-inner" role="listbox">
+                <a href="#" class="item active" style="text-decoration: none;">
+                  <div id="publi-1">
+                    <span class="carrousel-span">Ahora podes pagar con tarjeta de crédito y débito * <i style="margin-left: 5px;" class="fa-solid fa-credit-card"></i></span>
+                  </div>
+                </a>
+            
+                <a href="#" class="item" style="text-decoration: none;">
+                  <div id="publi-2">
+                    <span class="carrousel-span"><i class="fa-solid fa-syringe"></i>Vacunate contra la gripe !!</span>
+                  </div>
+                </a>
+            
+                <a href="#" class="item" style="text-decoration: none;">
+                  <div id="publi-3">
+                    <span class="carrousel-span"><img src="" alt="">Medicate forro HDP !!</span>
+                  </div>
+                </a>
+            </div>
         </ul>
     </header>
 
     <main>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Wrapper for slides -->
+        <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">
+            
             <div class="carousel-inner" role="listbox">
               <div class="item active">
                 <img class="img-carrousel" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzz6i3V4nWGts4efEnhYD_f4o-JNLl3ZO40A&usqp=CAU" alt="Imagen 1">
@@ -42,7 +109,7 @@
               </div>
             </div>
           
-            <!-- Controls -->
+            
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
@@ -52,30 +119,50 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-
-          <hr>
+        -->
     </main>
 
     <footer class="footer">
-        <p>© 2023 El Xokas</p>
-    </footer>
+      <div class="footer-container">
+          <div class="footer-left">
+              <h3>Información de contacto</h3>
+              <p>Dirección: 123 Calle de la Empresa, Ciudad, País</p>
+              <p>Teléfono: 123-456-7890</p>
+              <p>Email: info@empresa.com</p>
+          </div>
+          <div class="footer-right">
+              <h3>Enlaces rápidos</h3>
+              <ul>
+                  <li><a href="#">Inicio</a></li>
+                  <li><a href="#">Servicios</a></li>
+                  <li><a href="#">Productos</a></li>
+                  <li><a href="#">Contacto</a></li>
+              </ul>
+          </div>
+      </div>
+  </footer>
+  
 
 </body>
-<!-- Script de JavaScript -->
 <script>
-    function mostrarHora() {
-      var date = new Date();
-      var hora = date.getHours();
-      var minutos = date.getMinutes();
-      var segundos = date.getSeconds();
-      // Agrega un 0 delante si los minutos o segundos son menores que 10
-      minutos = minutos < 10 ? "0" + minutos : minutos;
-      segundos = segundos < 10 ? "0" + segundos : segundos;
-      var horaCompleta = hora + ":" + minutos + ":" + segundos;
-      document.getElementById('hora').textContent = horaCompleta;
-      document.getElementById('hora').style.width = "100px"
-    }
-    setInterval(mostrarHora, 1000); // Actualiza la hora cada segundo
-    mostrarHora(); // Mostrar la hora al cargar la página
-  </script>
+  $(document).ready(function(){
+    $(".dropbtn-productos").hover(
+        function(){
+            $(".dropbtn-productos").css("border-bottom", "2px solid #00A84D"); // Cambia el color al hacer hover
+        },
+        function(){
+            $(".dropbtn-productos").css("border-bottom", "0px");
+        }
+    );
+    $(".productos").hover(
+        function(){
+            $(".dropbtn-productos").css("border-bottom", "2px solid #00A84D"); // Cambia el color al hacer hover
+            $(".dropbtn-productos").css("border-radius", "0px");
+        },
+        function(){
+            $(".dropbtn-productos").css("border-bottom", "0px"); // Revierte el cambio cuando el mouse sale
+        }
+    );
+});
+</script>
 </html>

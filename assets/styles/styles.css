@@ -3,11 +3,10 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Cabin', sans-serif;
 }
 
 #header {
-    margin-top: -20px;
     width: 100%;
     background-color: whitesmoke;
 }
@@ -15,16 +14,20 @@
 #logo-farmacity {
     width: 230px;
     height: 75px;
-    padding: 10px;
+   background-color: #e6e3e3;
+   padding: 10px;
+   border-radius: 0.2em;
+   margin-left: 15px;
+   margin-bottom: 10px;
 }
 
 /* Estilos para el menú de navegación horizontal */
-ul {
+.ul-carrousel {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #4fc74f; /* Color de fondo del menú */
+    background-color: #05922f; /* Color de fondo del menú */
   }
 
   li {
@@ -40,13 +43,13 @@ ul {
   }
 
   li a:hover {
-    background-color: #00A84D;
+    background-color: #05922f;
     color: white;
   }
 
   #myCarousel {
-    margin-top: -10px;
-    min-height: 350px;
+    max-height: 60px;
+    min-height: 60px;
   }
 
   .footer {
@@ -74,4 +77,185 @@ ul {
 .img-carrousel {
     width: 100%;
     max-height: 250px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  margin-right: 50px; /* Ajusta el margen según tu preferencia */
+  color: black;
+}
+
+.iconos {
+  margin-top: 45px;
+}
+
+#mis-pedidos {
+  background-color: orangered;
+  border: 1px solid orangered;
+  color: white;
+  height: 35px;
+  width: 110px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 0.2em;
+  text-decoration: none;
+  transition: 500ms all;
+}
+
+#mis-pedidos:hover {
+  transform: rotateY(180deg);
+}
+
+#span-buscador {
+  width: 35%;
+}
+
+#buscador {
+  height: 45px;
+  margin-top: 35px;
+  width: 90%;
+  padding-left: 15px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  border: 1px solid #ccc;
+  background-color: #ccc;
+}
+
+#buscador:focus {
+    outline: none; /* Esto elimina el contorno predeterminado en algunos navegadores */
+}
+
+#icon-search {
+  background-color: #ccc;
+  color: white;
+  height: 45px;
+  padding: 15px;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  cursor: pointer;
+  color: gray;
+}
+
+.carrousel-span {
+  height: 60px;
+  min-height: 60px;
+  max-height: 60px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#publi-1, #publi-2, #publi-3 {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 60px;
+  max-height: 60px;
+  color: white;
+  text-align: center;
+  background-color: #05922f;
+  line-height: 40px;
+}
+
+
+#logo-tufarmacity {
+  border-radius: 0.5em;
+  margin-top: 30px;
+  margin-right: 25px;
+  border: 1px solid #ccc;
+  transition: 500ms all;
+}
+
+#logo-tufarmacity:hover {
+  transform: rotate(360deg);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 45px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: whitesmoke;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 3; 
+  margin-top: 10px;
+  border-radius: 0.2em;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #00A84D;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  padding: 10px;
+  border-radius: 0.3em;
+  transition: 70ms all;
+  color: gray;
+}
+
+.dropbtn:hover {
+  border-bottom: 2px solid #00A84D;
+  border-radius: 0em;
+  color: #00A84D;
+}
+
+.footer {
+  background-color: #f4f4f4;
+  padding: 50px 0;
+}
+
+.footer-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer h3 {
+  color: #333;
+}
+
+.footer p, .footer a {
+  color: #666;
+}
+
+.footer-left, .footer-right {
+  width: 45%;
+}
+
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-right ul li {
+  margin-bottom: 10px;
 }
