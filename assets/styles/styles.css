@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+#header {
+    margin-top: -20px;
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+#logo-farmacity {
+    width: 230px;
+    height: 75px;
+    padding: 10px;
+}
+
+/* Estilos para el menú de navegación horizontal */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4fc74f; /* Color de fondo del menú */
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white; /* Color del texto del menú */
+    text-align: center;
+    padding: 18px 19px; /* Espacio de relleno para los elementos del menú */
+    transition: 200ms all;
+  }
+
+  li a:hover {
+    background-color: #00A84D;
+    color: white;
+  }
+
+  #myCarousel {
+    margin-top: -10px;
+    min-height: 350px;
+  }
+
+  .footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ccc; /* Color de fondo del footer */
+    color: black; /* Color del texto del footer */
+    text-align: center;
+    padding: 15px 0; /* Espacio de relleno para el footer */
+    line-height: 50px;
+    position: absolute;
+  }
+
+  #float-right {
+    float: right;
+    margin-right: 10px;
+    background-color: black;
+  }
+
+  #float-right:hover {
+    background-color: white;
+  }
+
+.img-carrousel {
+    width: 100%;
+    max-height: 250px;
+}
