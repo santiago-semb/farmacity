@@ -1,0 +1,13 @@
+.alertpr {
+    padding: 20px;
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 24px;
+    text-align: center;
+  }

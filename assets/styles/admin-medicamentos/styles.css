@@ -1,0 +1,22 @@
+#medicamentos-table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#medicamentos-table th, #medicamentos-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#medicamentos-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#medicamentos-table img {
+    max-width: 70px;
+    max-height: 70px;
+}

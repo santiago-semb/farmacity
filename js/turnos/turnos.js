@@ -79,7 +79,6 @@ function Listar(){
 function ListarById(paramId){
     const tbody = document.getElementById("tbody-tabla-gestion-vacunacion")
     let dato = data.find(((e) => e.id == paramId))
-    console.log(dato)
     let iconoEstado = (dato.estado) ? "../../assets/icons/check-icon.png" : "../../assets/icons/fail-icon.png"
     tbody.innerHTML = `
     <tr>
@@ -93,11 +92,32 @@ function ListarById(paramId){
     `
 }
 
-function AceptarTurno(paramId){
-    let dato = data.find(((e) => e.id == paramId))
-    dato.estado = true
-    let jsonData = JSON.stringify(data)
-    localStorage.setItem("data", jsonData)
+function AceptarTurno(paramId) {
+    // Busca el índice del objeto que coincide con el id proporcionado
+    let index = data.findIndex((e) => e.id === paramId);
+
+    if (index !== -1) {
+        // Actualiza el objeto encontrado
+        data[index].estado = true;
+
+        // Vuelve a convertir a JSON y actualiza en localStorage
+        localStorage.setItem("data", JSON.stringify(data));
+    }
+    window.location.href = "../../ADMIN-vacunacion.html"
+}
+
+function RechazarTurno(paramId) {
+    // Busca el índice del objeto que coincide con el id proporcionado
+    let index = data.findIndex((e) => e.id === paramId);
+
+    if (index !== -1) {
+        // Elimina el objeto encontrado
+        data.splice(index, 1)
+
+        // Vuelve a convertir a JSON y actualiza en localStorage
+        localStorage.setItem("data", JSON.stringify(data));
+    }
+    window.location.href = "../../ADMIN-vacunacion.html"
 }
 
 const VaciarCampos = (...campos) => {

@@ -1,0 +1,49 @@
+#productForm {
+    width: 400px;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+#productName,
+#productDescription,
+#productPrice,
+#productImage {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#productDescription {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+#titulo-crear-producto {
+    font-size: 28px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: 2px solid orangered;
+    width: 30%;
+}
+
+#boton-crear-producto {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#boton-crear-producto:hover {
+    background-color: #45a049;
+}

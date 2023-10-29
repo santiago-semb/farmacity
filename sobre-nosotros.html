@@ -82,7 +82,7 @@
       <div class="container6">
         <div class="section left-section" style="text-align: center;">
             <h2><img src="./assets/img/logo-farmacity-azul.png" alt="" id="farmacity-foto-sn"></h2>
-            <p style="text-align: left; font-size: 18px;">Farmacity es una cadena de farmacias y droguerías con sede en Argentina. Fundada en 1997, se ha convertido en una de las cadenas de farmacias más grandes y reconocidas del país. Ofrece una amplia gama de productos farmacéuticos, productos de cuidado personal, artículos para el hogar y productos de belleza, entre otros. Además de la venta de medicamentos, Farmacity brinda servicios de asesoramiento farmacéutico y promueve la concientización sobre la salud y el bienestar. La compañía ha ganado popularidad debido a su amplia presencia en todo el país, lo que la convierte en una opción conveniente para muchas personas que buscan productos farmacéuticos y de cuidado personal.</p>
+            <p style="text-align: left; font-size: 18px;" id="info-farmacity"></p>
         </div>
         <div class="section right-section">
             <h2>Sección Derecha</h2>
@@ -124,5 +124,26 @@
   </div>
 
 </body>
+<script>
+  function a(idElement, texto){
+    const textoElement = document.getElementById(idElement);
+      const textoOriginal = texto;
+
+      
+      let index = 0;
+      
+      function agregarCaracter() {
+          if (index < textoOriginal.length) {
+              textoElement.textContent += textoOriginal.charAt(index);
+              index++;
+              setTimeout(agregarCaracter, 15); // Velocidad de escritura (ajusta según tus preferencias)
+          }
+      }
+      
+      agregarCaracter(); // Inicia la animación al cargar la página
+  }
+  a("info-farmacity","Farmacity es una cadena de farmacias y droguerías con sede en Argentina. Fundada en 1997, se ha convertido en una de las cadenas de farmacias más grandes y reconocidas del país. Ofrece una amplia gama de productos farmacéuticos, productos de cuidado personal, artículos para el hogar y productos de belleza, entre otros. Además de la venta de medicamentos, Farmacity brinda servicios de asesoramiento farmacéutico y promueve la concientización sobre la salud y el bienestar. La compañía ha ganado popularidad debido a su amplia presencia en todo el país, lo que la convierte en una opción conveniente para muchas personas que buscan productos farmacéuticos y de cuidado personal.")
+  
+  </script>
 <script src="farmacity/jquery.js"></script>
 </html>

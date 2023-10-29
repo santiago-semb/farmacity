@@ -14,8 +14,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/d3ba0e2c6d.js" crossorigin="anonymous"></script>
 </head>
+<style>
+  .alertpr {
+    padding: 20px;
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 24px;
+    text-align: center;
+  }
+
+</style>
 <body>       
-  <header id="header">
+   <header id="header">
     <div class="icon-container">
       <h1><img src="assets/img/logo-farmacity.png" class="icon" id="logo-farmacity" alt="logo-farmacity"></h1>
       <span id="span-buscador">
@@ -42,9 +58,26 @@
             <a href="./contacto.html" style="text-decoration: none;" class="ayuda">Contáctanos</a>
             <a href="./preguntas-frecuentes.html" style="text-decoration: none;" class="ayuda">Preguntas Frecuentes</a>
           </div>
-        </div>
-        
+        </div>     
       </span>
+
+      <div class="dropdown">
+        <span class="dropbtn-carrito"><i id="carrito" class="fa-solid fa-cart-shopping" onclick="openCart()"></i></span>
+        <div class="dropdown-content">
+          <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCart()">&times;</span>
+                <h2 style="text-align: center; width: 100%; margin-bottom: 20px; border-bottom: 2px solid rgb(58, 53, 53); padding-bottom: 15px;">Contenido del Carrito</h2>
+                <ul id="cart-items">
+                    
+                </ul>
+                <p style="padding: 5px;text-align: center;background-color: #00A84D;color: whitesmoke; width: 100%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                TOTAL: <b id="precio-total-carrito"></b></p>
+            </div>
+        </div>
+        </div>
+      </div>   
+
       <span>
         <a href="farmacity.html"><img src="./assets/img/tufarmacity.png" alt="tu-farmacity" id="logo-tufarmacity"></a>
       </span>
@@ -77,9 +110,31 @@
         </div>
     </ul>
 
-    <main>
+    <main style="min-height: 500px;">
+
+      <div class="alert15">
+        <div class="alert-heading15">Requsitos para la compra de medicamentos bajo receta</div>
+        <div class="alert-message15">* Nombre del paciente</div>
+        <div class="alert-message15">* Nombre del medicamento</div>
+        <div class="alert-message15">* Dosis del medicamento</div>
+        <div class="alert-message15">* Frecuencia de administracion del tratamiento</div>
+        <div class="alert-message15">* Duración del tratamiento</div>
+        <div class="alert-message15">* La receta debera estar firmada por el profesional medico</div>
+    </div>     
+
+    <div id="alert-noMedicamentos"></div>
       
       
+      <div id="card-container" class="card-container">
+        
+      </div>     
+        
+          
+      
+    </main>
+
+
+
     </main>
     
     <div class="footer">
@@ -113,6 +168,6 @@
   </div>
     
 </body>
-<script src="js/carrousel.js"></script>
+<script src="js/medicamentos/medicamento.js"></script>
 <script src="farmacity/jquery.js"></script>
 </html>

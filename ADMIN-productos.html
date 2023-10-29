@@ -13,8 +13,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/d3ba0e2c6d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/vacunacion/styles.css">
-    <link rel="stylesheet" href="./assets/styles/admin-vacunacion/styles.css">
+    <link rel="stylesheet" href="./assets/styles/admin-crear-producto/styles.css">
+    <link rel="stylesheet" href="./assets/styles/admin-productos/styles.css">
 </head>
+
 <body>       
   <header id="header">
     <div class="icon-container">
@@ -57,45 +59,46 @@
     <div style="height: 5px; width: 100%; background-color: orangered;"></div>
 
     <main>
-        <h3 id="h3-vacunacion" style="margin: 0 auto; margin-top: 20px;">Gestionar Turno</h3>
-        <table>
-           <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Correo Electrónico</th>
-                <th>Teléfono</th>
-                <th>Fecha</th>
-                <th>Mensaje</th>
-                <th>Estado</th>
-              </tr>
-           </thead>
-            <tbody id="tbody-tabla-gestion-vacunacion"></tbody>
-        </table>
 
-        <div class="form-container10">
-            <button class="accept" id="boton-aceptar" onclick="AceptarTurno(obtenerIdDeUrl())">Aceptar</button>
-            <button class="reject" id="boton-rechazar" onclick="RechazarTurno(obtenerIdDeUrl())">Rechazar</button>
-        </div>
+      <h2>Productos</h2>
+
+      <table id="product-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+              <th><i class="fa-solid fa-screwdriver-wrench"></i></th>
+            </tr>
+          </thead>
+          <tbody id="admin-tabla-productos"></tbody>
+      </table>
+
+
+        
+      <p id="titulo-crear-producto">Crear Producto</p>
+      <form id="productForm" enctype="multipart/form-data">
+          <label for="productName">Nombre del Producto</label><br>
+          <input type="text" id="productName" name="productName"><br><br>
+  
+          <label for="productDescription">Descripción del Producto</label><br>
+          <textarea id="productDescription" name="productDescription" rows="4" cols="50"></textarea><br><br>
+  
+          <label for="productPrice">Precio del Producto</label><br>
+          <input type="number" id="productPrice" name="productPrice" step="0.01"><br><br>
+  
+          <label for="productImage">Imagen del Producto</label><br>
+          <input type="text" id="productImage" name="productImage"><br><br>
+  
+          <input type="submit" onclick="CargarProducto()" id="boton-crear-producto" value="Crear Producto">
+      </form>
+      
       
     </main>
 
 
 </body>
-<script>
-  function obtenerIdDeUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return parseInt(urlParams.get('id'));
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-      // Obtener parámetros de la URL
-      const urlParams = new URLSearchParams(window.location.search);
-      // Obtener el valor del parámetro 'id'
-      const id = urlParams.get('id');
-      ListarById(id)
-  });
-  
-</script>
-<script src="js/turnos/turnos.js"></script>
+<script src="./js/productos/productos.js"></script>
 <script src="farmacity/jquery.js"></script>
 </html>
