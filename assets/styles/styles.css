@@ -65,28 +65,6 @@
     min-height: 50px;
   }
 
-  .footer {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #ccc; /* Color de fondo del footer */
-    color: black; /* Color del texto del footer */
-    text-align: center;
-    padding: 15px 0; /* Espacio de relleno para el footer */
-    line-height: 50px;
-    position: absolute;
-  }
-
-  #float-right {
-    float: right;
-    margin-right: 10px;
-    background-color: black;
-  }
-
-  #float-right:hover {
-    background-color: white;
-  }
-
 .img-carrousel {
     width: 100%;
     max-height: 250px;
@@ -336,4 +314,46 @@
   .category {
       flex-basis: 100%;
   }
+}
+
+.footer {
+  background-color: #292929;
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 50px;
+}
+.footer-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.footer-section {
+  width: 250px;
+  margin: 20px;
+  text-align: left;
+}
+.footer-section h3 {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+.footer-section a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.footer-social {
+  margin-top: 20px;
+}
+.footer-social a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #ffffff;
 }
