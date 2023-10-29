@@ -1,0 +1,26 @@
+.container6 {
+    display: flex;
+    min-height: 500px;
+}
+.section {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.left-section {
+    background-color: #f2f2f2;
+}
+.right-section {
+    background-color: #e6e6e6;
+}
+
+#farmacity-foto-sn {
+    width: 60%;
+    height: 120px;
+    border-radius: 0.1em;
+    margin-bottom: 20px;
+    animation-name: filterbro;
+    animation-duration: 1s;
+    filter: saturate(200%);
+    border: 5px double #ccc;
+}
