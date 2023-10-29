@@ -85,14 +85,9 @@
             <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required autocomplete="off">
             <input type="email" id="email" name="email" placeholder="Correo electrónico" required autocomplete="off">
             <input type="text" id="telefono" name="telefono" placeholder="Teléfono" required autocomplete="off">
-            <select id="especialidad" name="especialidad" required>
-                <option value="" disabled selected>Elija una especialidad</option>
-                <option value="dermatologia">Dermatología</option>
-                <option value="cardiologia">Cardiología</option>
-                <option value="ginecologia">Ginecología</option>
-            </select>
+            <input type="date" id="fecha">
             <textarea id="mensaje" name="mensaje" placeholder="Mensaje" style="height:200px" required autocomplete="off"></textarea>
-            <input type="submit" id="boton-enviar" value="Solicitar Turno">
+            <input type="submit" id="boton-enviar" value="Solicitar Turno" onclick="Guardar()">
         </form>
     </div>
       
@@ -130,5 +125,6 @@
   </div>
 
 </body>
+<script src="./js/turnos/turnos.js"></script>
 <script src="farmacity/jquery.js"></script>
 </html>

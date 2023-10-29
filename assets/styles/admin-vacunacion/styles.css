@@ -1,0 +1,83 @@
+table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#h3-vacunacion {
+    text-transform: capitalize;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 0.1em;
+    width: 30%;
+    padding: 5px;
+    text-align: center;
+}
+
+.icons-check-and-fail {
+    height: 25px;
+    width: 25px;
+}
+
+.form-container10 {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 50%;   
+}
+
+.form-container10 button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container10 button.accept {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+
+.form-container10 button.accept:hover {
+    background-color: #27b62c;
+}
+
+.form-container10 button.reject {
+    background-color: #f44336;
+    color: #ffffff;
+}
+
+.form-container10 button.reject:hover {
+    background-color: #e03124;
+}
+
+td {
+    padding: 12px;
+}
+
+.tr-data {
+    transition: 300ms all;
+}
+
+.tr-data:hover {
+    background-color: gainsboro;
+}

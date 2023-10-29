@@ -13,7 +13,7 @@ h2 {
     text-transform: uppercase;
     color: #333;
 }
-#nombre, #email, #telefono, #especialidad, #mensaje {
+#nombre, #email, #telefono, #fecha, #mensaje {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -31,4 +31,8 @@ h2 {
 }
 #boton-enviar:hover {
     background-color: #555;
+}
+
+#mensaje {
+    max-width: 450px;
 }

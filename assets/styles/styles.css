@@ -357,3 +357,22 @@
   margin: 0 10px;
   color: #ffffff;
 }
+
+.custom-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 20px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.custom-alert .close-btn {
+  color: #721c24;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
