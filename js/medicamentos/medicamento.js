@@ -58,16 +58,18 @@ function ListarMedicamentos(){
 
 let cart = JSON.parse(localStorage.getItem("carrito")) || [];
 
-let botonesCart = document.querySelectorAll(".btn");
-botonesCart.forEach(boton => {
-  boton.addEventListener("click", (event) => {
-      let card = event.target.closest(".card");
-      let productName = card.querySelector(".card-title").textContent;
-      let productPrice = parseInt(card.querySelector(".card-price").textContent);
-      let productImg = card.querySelector(".card-img img").src;
-      addToCart(productName, productPrice, productImg);
-  });
-});
+if(!window.location.pathname.includes("ADMIN")){
+    let botonesCart = document.querySelectorAll(".btn");
+    botonesCart.forEach(boton => {
+    boton.addEventListener("click", (event) => {
+        let card = event.target.closest(".card");
+        let productName = card.querySelector(".card-title").textContent;
+        let productPrice = parseInt(card.querySelector(".card-price").textContent);
+        let productImg = card.querySelector(".card-img img").src;
+        addToCart(productName, productPrice, productImg);
+    });
+    });
+}
 
 function addToCart(nombre, precio, img) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -206,12 +208,35 @@ function ListarMedicamentosAdmin(){
                 <td id="product-price1">$${medicamentos[i].precio}</td>
                 <td><img src="${medicamentos[i].img}" alt="Imagen del producto 1" id="product-image1"></td>
                 <td>
-                    <button class='btn btn-info'><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class='btn btn-danger'><i class="fa-solid fa-trash"></i></button>
+                    <a href='../../ADMIN-gestion-medicamentos.html?nombre=${medicamentos[i].nombre}'><button class='btn btn-info'><i class="fa-solid fa-pen-to-square"></i></button></a>
                 </td>
             </tr>
             `
         }
     }
     
+}
+
+function EliminarMedicamentoAdmin(nombre) {
+    let index = medicamentos.findIndex((e) => e.nombre === nombre);
+
+    if (index !== -1) {
+        medicamentos.splice(index, 1)
+        localStorage.setItem("medicamentos", JSON.stringify(medicamentos));
+    }
+    window.location.href = "../../ADMIN-medicamentos.html"
+}
+
+function ListarByNombre(nombre){
+    const tbody = document.getElementById("admin-tabla-medicamentos")
+    let medicamento = medicamentos.find(((e) => e.nombre == nombre))
+    tbody.innerHTML = `
+    <tr>
+        <td>${medicamento.nombre}</td>
+        <td>${medicamento.descripcion}</td>
+        <td>${medicamento.precio}</td>
+        <td><img class="icons-check-and-fail" src="${medicamento.img}" alt=""></td>
+        <td><button class='btn btn-warning'><i class="fa-solid fa-pen"></i></button></td>
+    </tr>
+    `
 }
