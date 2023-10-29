@@ -27,7 +27,7 @@ function ListarProductos(){
         const divNoProducts = document.getElementById("alert-noProducts")
         divNoProducts.innerHTML = `
             <div id="alert" class="alertpr"> 
-                Aun no hay productos !! 
+            <i class="fa-solid fa-cat"></i> No hay productos disponibles
             </div>
         `
     }else{

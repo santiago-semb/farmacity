@@ -22,5 +22,5 @@
     animation-name: filterbro;
     animation-duration: 1s;
     filter: saturate(200%);
-    border: 5px double #ccc;
+    border-radius: 2em;
 }

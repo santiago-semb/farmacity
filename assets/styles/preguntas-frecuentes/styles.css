@@ -1,0 +1,9 @@
+#titulo-preguntas-frecuentes {
+    text-transform: capitalize;
+    font-size: 25px;
+}
+
+.preguntaFrecuente {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

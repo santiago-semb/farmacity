@@ -295,36 +295,11 @@
   text-align: center;
 }
 
-
-.container-home {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.category {
-  flex-basis: 30%;
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-@media (max-width: 768px) {
-  .category {
-      flex-basis: 100%;
-  }
-}
-
 .footer {
   background-color: #292929;
   color: #ffffff;
   text-align: center;
   padding: 40px 0;
-  margin-top: 50px;
 }
 .footer-content {
   display: flex;
@@ -431,3 +406,153 @@
           display: block;
           margin: 10px 0;
       }
+
+      .contenedor-tarjeta {
+        width: 400px;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 10px;
+        position: relative;
+        animation: mover 10s infinite alternate;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .contenedor-tarjeta2 {
+      width: 400px;
+      height: 150px;
+      overflow: hidden;
+      border-radius: 10px;
+      position: relative;
+      animation: mover2 10s infinite alternate;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+
+    @keyframes mover {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(250px);
+        }
+    }
+
+    @keyframes mover2 {
+      0% {
+          transform: translateX(250px);
+      }
+      100% {
+          transform: translateX(0);
+      }
+  }
+
+    .contenedor-tarjeta img {
+        width: 100%;
+        height: 150px;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .contenedor-padre {
+      display: flex;
+  }
+
+  .mitad-izquierda, .mitad-derecha {
+      flex: 1;
+  }
+
+  .mitad-izquierda {
+      background-color: #f3f3f3;
+  }
+
+  .mitad-derecha {
+      background-color: #ccc;
+  }
+
+#img-portada-tufarmacity {
+  width: 100%;
+  height: 500px;
+}
+
+.mini-container {
+  width: 100%;
+  height: auto;
+}
+
+.tabla {
+  width: 80%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.tabla td {
+  padding: 30px;
+}
+
+.tabla td img {
+  width: 200px;
+  height: 100px;
+  border-radius: 0.5em;
+}
+
+.flotar {
+  animation: flotar 2s infinite ease-in-out alternate;
+}
+.flotar2 {
+  animation: flotar2 3s infinite ease-in-out alternate;
+}
+.flotar3 {
+  animation: flotar 2s infinite ease-in-out alternate;
+}
+.flotar4 {
+  animation: flotar2 3s infinite ease-in-out alternate;
+}
+.flotar5 {
+  animation: flotar 4s infinite ease-in-out alternate;
+}
+.flotar6 {
+  animation: flotar3 3s infinite ease-in-out alternate;
+}
+.flotar7 {
+  animation: flotar 2s infinite ease-in-out alternate;
+}
+.flotar8 {
+  animation: flotar2 43s infinite ease-in-out alternate;
+}
+
+@keyframes flotar {
+  0% {
+      transform: translateY(4px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
+}
+
+@keyframes flotar2 {
+  0% {
+      transform: translateY(4px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
+}
+
+@keyframes flotar3 {
+  0% {
+      transform: translateY(4px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
+}

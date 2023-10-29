@@ -27,7 +27,7 @@ function ListarMedicamentos(){
         const divNoMedicamentos = document.getElementById("alert-noMedicamentos")
         divNoMedicamentos.innerHTML = `
             <div id="alert" class="alertpr"> 
-                Aun no hay medicamentos !! 
+            <i class="fa-solid fa-cat"></i> No hay productos disponibles
             </div>
         `
     }else{
