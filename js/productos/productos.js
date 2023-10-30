@@ -41,12 +41,12 @@ function ListarProductos(){
                 <div class="card-content">
                 <h2 class="card-title"><span id="productName">${productos[i].nombre}</span></h2>
                 <p class="card-description" id="productDescription">${productos[i].descripcion}</p>
-                <p>$ <span class="card-price"><span id="productPrice">${productos[i].precio}</span></span></p>
+                <p>$ <span class="card-price"><span id="productPrice">${productos[i].precio.toFixed(2)}</span></span></p>
                 <button
                     id="boton-add-to-cart"
                     class="btn"
                     style="background-color: rgb(236, 90, 36); color: white;">
-                    Comprar
+                    Agregar
                 </button>
                 </div>
             `
@@ -88,36 +88,20 @@ function addToCart(nombre, precio, img) {
 }
 
 function eliminarProducto(nombre) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let index = cart.findIndex(product => product.name === nombre);
-  if (index !== -1) {
-      cart.splice(index, 1);
-      console.log(`Producto con nombre ${nombre} eliminado.`);
-      // Eliminar el elemento del carrito del DOM
-      let cartItems = document.getElementById("cart-items");
-      let elementos = cartItems.getElementsByTagName("span");
-      let elementosAEliminar = [];
-      for (let i = 0; i < elementos.length; i++) {
-          if (elementos[i].textContent === nombre) {
-              elementosAEliminar.push(elementos[i]);
-          }
-      }
-      elementosAEliminar.forEach(elemento => {
-          elemento.parentNode.removeChild(elemento);
-      });
-      // Actualizar el precio total del carrito
-      let bPrecioTotalCarrito = document.getElementById("precio-total-carrito");
-      let totalPrecios = 0;
-      cart.forEach(item => {
-          totalPrecios += item.price;
-      });
-      bPrecioTotalCarrito.innerHTML = `$${totalPrecios.toFixed(2)}`;
-      // Actualizar el localStorage
-      localStorage.setItem("cart", JSON.stringify(cart));
-  } else {
-      console.log(`Producto con nombre ${nombre} no encontrado en el carrito.`);
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let index = cart.findIndex(product => product.name === nombre);
+    if (index !== -1) {
+        cart.splice(index, 1);
+        console.log(`Producto con nombre ${nombre} eliminado.`);
+        // Actualizar el localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+        // Volver a renderizar el carrito
+        openCart();
+    } else {
+        console.log(`Producto con nombre ${nombre} no encontrado en el carrito.`);
+    }
   }
-}
+  
 
 function openCart() {
     let modal = document.getElementById("cart-modal");
@@ -129,48 +113,74 @@ function openCart() {
 
     let totalPrecios = 0;
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    cart.forEach(item => {
+    
+    if(cart.length == 0){
         let itemContainer = document.createElement("div");
-        itemContainer.style.marginTop = "30px";
-        itemContainer.style.marginBottom = "30px";
-        itemContainer.classList.add("cart-item");
+            itemContainer.style.marginTop = "30px";
+            itemContainer.style.marginBottom = "30px";
+            itemContainer.classList.add("cart-item");
 
-        let spanTexto = document.createElement("span");
-        spanTexto.textContent = item.name;
-        let spanPrecio = document.createElement("span");
-        spanPrecio.textContent = `$${item.price.toFixed(2)}`;
+        let pNoItems = document.createElement("span")
+        pNoItems.textContent = `El carrito esta vacío :(`
+        pNoItems.style.fontSize = "17px"
+        pNoItems.style.fontWeight = "bold"
 
-        let imgProducto = document.createElement("img");
-        imgProducto.style.width = "60px";
-        imgProducto.style.height = "60px";
-        imgProducto.src = item.img;
-
-        let botonEliminar = document.createElement("button");
-        botonEliminar.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
-        botonEliminar.className = "btn btn-danger";
-        botonEliminar.style.position = "absolute";
-        botonEliminar.style.right = "0";
-        botonEliminar.style.marginRight = "20px";
-        botonEliminar.style.marginTop = "10px";
-
-        botonEliminar.addEventListener("click", () => {
-            eliminarProducto(item.name);
-            // Elimina el contenedor completo del item del carrito
-            itemContainer.remove();
-            // Actualiza el precio total del carrito
-            totalPrecios -= item.price;
-            bPrecioTotalCarrito.textContent = `$${totalPrecios.toFixed(2)}`;
-        });
-
-        totalPrecios += item.price;
-
-        itemContainer.appendChild(imgProducto);
-        itemContainer.appendChild(spanTexto);
-        itemContainer.appendChild(spanPrecio);
-        itemContainer.appendChild(botonEliminar);
+        itemContainer.appendChild(pNoItems)
         cartItems.appendChild(itemContainer);
-    });
+    }else{
+        cart.forEach(item => {
+            let itemContainer = document.createElement("div");
+            itemContainer.style.marginTop = "30px";
+            itemContainer.style.marginBottom = "30px";
+            itemContainer.classList.add("cart-item");
+    
+            let spanTexto = document.createElement("span");
+            spanTexto.textContent = item.name;
+            let spanPrecio = document.createElement("span");
+            spanPrecio.textContent = `$${item.price.toFixed(2)}`;
+    
+            spanTexto.style.marginLeft = "5px"
+            spanTexto.style.marginRight = "5px"
+            spanTexto.style.textTransform = "uppercase"
+            spanTexto.style.fontSize = "18px"
+    
+            spanPrecio.style.fontWeight = "bold"
+            spanPrecio.style.fontSize = "18px"
+            spanPrecio.style.float = "right"
+            spanPrecio.style.marginTop = "15px"
+            spanPrecio.style.marginLeft = "10px"
+    
+            let imgProducto = document.createElement("img");
+            imgProducto.style.width = "60px";
+            imgProducto.style.height = "60px";
+            imgProducto.src = item.img;
+    
+            let botonEliminar = document.createElement("button");
+            botonEliminar.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+            botonEliminar.className = "btn btn-danger";
+            botonEliminar.style.position = "absolute";
+            botonEliminar.style.right = "0";
+            botonEliminar.style.marginRight = "20px";
+            botonEliminar.style.marginTop = "10px";
+    
+            botonEliminar.addEventListener("click", () => {
+                eliminarProducto(item.name);
+                // Elimina el contenedor completo del item del carrito
+                itemContainer.remove();
+                // Actualiza el precio total del carrito
+                totalPrecios -= item.price;
+                bPrecioTotalCarrito.textContent = `$${totalPrecios.toFixed(2)}`;
+            });
+    
+            totalPrecios += item.price;
+    
+            itemContainer.appendChild(imgProducto);
+            itemContainer.appendChild(spanTexto);
+            itemContainer.appendChild(spanPrecio);
+            itemContainer.appendChild(botonEliminar);
+            cartItems.appendChild(itemContainer);
+        });
+    }
 
     let bPrecioTotalCarrito = document.getElementById("precio-total-carrito");
     bPrecioTotalCarrito.textContent = `$${totalPrecios.toFixed(2)}`;
@@ -197,8 +207,7 @@ function ListarProductosAdmin(){
         `
     }else{
         const divAdminTable = document.getElementById("container-table-admProductos")
-        for(let i=0; i<productos.length; i++){
-            divAdminTable.innerHTML += `
+        divAdminTable.innerHTML = `
             <h2>Productos</h2>
             <table id="product-table">
                 <thead>
@@ -210,7 +219,13 @@ function ListarProductosAdmin(){
                     <th><i class="fa-solid fa-screwdriver-wrench"></i></th>
                 </tr>
             </thead>
-            <tbody id="admin-tabla-productos">
+            <tbody id="admin-tabla-productos"></tbody>
+            </table>
+        `
+        const tbody = document.getElementById("admin-tabla-productos")
+        for(let i=0; i<productos.length; i++){
+            tbody.innerHTML += `
+            
             <tr>
                 <td id="product-name1">${productos[i].nombre}</td>
                 <td id="product-description1">${productos[i].descripcion}</td>
@@ -220,8 +235,7 @@ function ListarProductosAdmin(){
                     <a href='../../ADMIN-gestion-productos.html?nombre=${productos[i].nombre}'><button class='btn btn-info'><i class="fa-solid fa-pen-to-square"></i></button></a>
                 </td>
             </tr>
-            </tbody>
-            </table>
+            
             `
         }
     }
