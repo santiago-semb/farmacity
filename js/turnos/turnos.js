@@ -11,25 +11,42 @@ function Guardar(){
 
     let identificador = data.length > 0 ? data[data.length - 1].id + 1 : 1;
 
-    let objTurno = {
-        id: identificador,
-        nombre: nombre.value,
-        email: email.value,
-        telefono: telefono.value,
-        fecha: fecha.value,
-        mensaje: mensaje.value,
-        estado: false
+    if(nombre.value == "" || email.value == "" || telefono.value == "" || fecha.value == ""){
+        let alertaCamposObligatorios = document.getElementById("alertaCamposObligatorios")
+        alertaCamposObligatorios.innerHTML = `
+        <div class="alert alert-danger" role="alert" style="width: 80%; margin: 0 auto; margin-top: 20px; text-align: center;">
+            El formulario no puede estar vacío
+        </div>
+        `
+    }else{
+        let objTurno = {
+            id: identificador,
+            nombre: nombre.value,
+            email: email.value,
+            telefono: telefono.value,
+            fecha: fecha.value,
+            mensaje: mensaje.value,
+            estado: false
+        }
+    
+        objTurno.id += 1
+        data.push(objTurno)
+    
+        VaciarCampos(nombre, email, telefono, fecha, mensaje)
+        Focus(nombre)
+    
+        let jsonData = JSON.stringify(data)
+    
+        localStorage.setItem("data", jsonData)
+    
+        document.getElementById("alertaCamposObligatorios").innerHTML = ""
+        let alertaTurnoExitoso = document.getElementById("alertaTurnoExitoso")
+        alertaTurnoExitoso.innerHTML = `
+            <div class="alert alert-success" role="alert" style="width: 80%; margin: 0 auto; margin-top: 20px; text-align: center;">
+                Se ha solicitado el turno correctamente.
+            </div>
+        `
     }
-
-    objTurno.id += 1
-    data.push(objTurno)
-
-    VaciarCampos(nombre, email, telefono, fecha, mensaje)
-    Focus(nombre)
-
-    let jsonData = JSON.stringify(data)
-
-    localStorage.setItem("data", jsonData)
 }
 
 function Listar(){

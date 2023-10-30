@@ -355,6 +355,21 @@
   cursor: pointer;
 }
 
+.alertpr {
+  padding: 20px;
+  background-color: rgb(224, 119, 70);
+  color: whitesmoke;
+  border: 1px solid #ebccd1;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 50px;
+  font-size: 24px;
+  text-align: center;
+}
+
+
 #carrito {
   background-color: whitesmoke;
   border: 2px solid rgb(236, 90, 36);

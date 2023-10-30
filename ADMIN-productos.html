@@ -60,20 +60,9 @@
 
     <main>
 
-      <h2>Productos</h2>
+      <div id="alert-noProducts"></div>
 
-      <table id="product-table">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <th>Precio</th>
-              <th>Imagen</th>
-              <th><i class="fa-solid fa-screwdriver-wrench"></i></th>
-            </tr>
-          </thead>
-          <tbody id="admin-tabla-productos"></tbody>
-      </table>
+      <div id="container-table-admProductos"></div>
 
 
         
@@ -99,12 +88,6 @@
 
 
 </body>
-<script>
-  if(document.getElementById("deleteButton")){
-    let botonEliminar = document.getElementById("deleteButton")
-    botonEliminar.onclick = EliminarProductoAdmin("coca")
-  }
-</script>
 <script src="./js/productos/productos.js"></script>
 <script src="farmacity/jquery.js"></script>
 </html>

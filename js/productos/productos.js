@@ -191,23 +191,37 @@ function ListarProductosAdmin(){
     if(productos.length == 0){
         const divNoProducts = document.getElementById("alert-noProducts")
         divNoProducts.innerHTML = `
-            <div id="alert" class="alertpr"> 
-                Aun no hay productos !! 
-            </div>
+        <div id="alert" class="alertpr"> 
+            <i class="fa-solid fa-cat"></i> No hay productos disponibles
+        </div>
         `
     }else{
-        const tbodyAdminTable = document.getElementById("admin-tabla-productos")
+        const divAdminTable = document.getElementById("container-table-admProductos")
         for(let i=0; i<productos.length; i++){
-            tbodyAdminTable.innerHTML += `
+            divAdminTable.innerHTML += `
+            <h2>Productos</h2>
+            <table id="product-table">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th><i class="fa-solid fa-screwdriver-wrench"></i></th>
+                </tr>
+            </thead>
+            <tbody id="admin-tabla-productos">
             <tr>
                 <td id="product-name1">${productos[i].nombre}</td>
                 <td id="product-description1">${productos[i].descripcion}</td>
                 <td id="product-price1">$${productos[i].precio}</td>
-                <td><img src="${productos[i].img}" alt="Imagen del producto 1" id="product-image1"></td>
+                <td><img src="${productos[i].img}" alt="Imagen del producto 1"></td>
                 <td>
                     <a href='../../ADMIN-gestion-productos.html?nombre=${productos[i].nombre}'><button class='btn btn-info'><i class="fa-solid fa-pen-to-square"></i></button></a>
                 </td>
             </tr>
+            </tbody>
+            </table>
             `
         }
     }

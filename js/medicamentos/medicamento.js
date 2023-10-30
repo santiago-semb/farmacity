@@ -86,7 +86,6 @@ function addToCart(nombre, precio, img) {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-
 function eliminarProducto(nombre) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let index = cart.findIndex(product => product.name === nombre);
@@ -118,8 +117,6 @@ function eliminarProducto(nombre) {
       console.log(`Producto con nombre ${nombre} no encontrado en el carrito.`);
   }
 }
-
-
 
 function openCart() {
     let modal = document.getElementById("cart-modal");
@@ -181,8 +178,6 @@ function openCart() {
     modalContent.style.maxHeight = (window.innerHeight * 0.7) + "px";
 }
 
-
-
 function closeCart() {
   let modal = document.getElementById("cart-modal");
   let modalContent = document.getElementById("modal-content");
@@ -194,23 +189,37 @@ function ListarMedicamentosAdmin(){
     if(medicamentos.length == 0){
         const divNoProducts = document.getElementById("alert-noProducts")
         divNoProducts.innerHTML = `
-            <div id="alert" class="alertpr"> 
-                Aun no hay medicamentos !! 
-            </div>
+        <div id="alert" class="alertpr"> 
+            <i class="fa-solid fa-cat"></i> No hay productos disponibles
+        </div>
         `
     }else{
-        const tbodyAdminTable = document.getElementById("admin-tabla-medicamentos")
+        const divTabla = document.getElementById("container-tableMedicamentos")
         for(let i=0; i<medicamentos.length; i++){
-            tbodyAdminTable.innerHTML += `
-            <tr>
-                <td id="product-name1">${medicamentos[i].nombre}</td>
-                <td id="product-description1">${medicamentos[i].descripcion}</td>
-                <td id="product-price1">$${medicamentos[i].precio}</td>
-                <td><img src="${medicamentos[i].img}" alt="Imagen del producto 1" id="product-image1"></td>
-                <td>
-                    <a href='../../ADMIN-gestion-medicamentos.html?nombre=${medicamentos[i].nombre}'><button class='btn btn-info'><i class="fa-solid fa-pen-to-square"></i></button></a>
-                </td>
-            </tr>
+            divTabla.innerHTML += `
+            <h2>Medicamentos</h2>
+            <table id="medicamentos-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                        <th><i class="fa-solid fa-screwdriver-wrench"></i></th>
+                    </tr>
+                </thead>
+                <tbody id="admin-tabla-medicamentos">
+                    <tr>
+                        <td id="product-name1">${medicamentos[i].nombre}</td>
+                        <td id="product-description1">${medicamentos[i].descripcion}</td>
+                        <td id="product-price1">$${medicamentos[i].precio}</td>
+                        <td><img src="${medicamentos[i].img}" alt="Imagen del producto 1" id="product-image1"></td>
+                        <td>
+                            <a href='../../ADMIN-gestion-medicamentos.html?nombre=${medicamentos[i].nombre}'><button class='btn btn-info'><i class="fa-solid fa-pen-to-square"></i></button></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             `
         }
     }
