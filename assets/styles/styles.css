@@ -426,7 +426,7 @@
           margin: 10px 0;
       }
 
-      .contenedor-tarjeta {
+    .contenedor-tarjeta {
         width: 400px;
         height: 150px;
         overflow: hidden;
@@ -589,4 +589,85 @@
   float: right;
   margin-top: 15px;
   margin-left: 10px;
+}
+
+@media screen and (max-width: 1338px) {
+  .contenedor-tarjeta {
+    width: 350px;
+  }
+
+  .contenedor-tarjeta2 {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 1260px) {
+  .contenedor-tarjeta {
+    width: 320px;
+  }
+
+  .contenedor-tarjeta2 {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 1194px) {
+  .contenedor-tarjeta {
+    width: 290px;
+  }
+
+  .contenedor-tarjeta2 {
+    width: 290px;
+  }
+}
+
+@media screen and (max-width: 1108px) {
+  .contenedor-tarjeta {
+    width: 450px;
+    animation-name: none;
+    position:static;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .contenedor-tarjeta2 {
+    width: 450px;
+    animation-name: none;
+    position:static;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 1256px) {
+    #buscador {
+      width: 80%;
+    }
+
+    .dropdown {
+      margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1188px) {
+  .dropdown {
+    margin-right: 10px;
+    margin-left: -10px;
+  }
+}
+
+
+@media screen and (max-width: 1034px) {
+  #buscador {
+    width: 75%;
+  }
+
+  .dropdown {
+    font-size: 12px;
+  }
+
+  #logo-tufarmacity {
+    margin-right: 20px;
+  }
+  
 }

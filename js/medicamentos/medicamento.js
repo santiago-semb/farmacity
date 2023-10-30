@@ -138,6 +138,9 @@ function openCart() {
             let spanPrecio = document.createElement("span");
             spanPrecio.textContent = `$${item.price.toFixed(2)}`;
 
+            spanTexto.id = "textoCarrito"
+            spanPrecio.id = "precioCarrito"
+
             spanTexto.style.marginLeft = "5px"
             spanTexto.style.marginRight = "5px"
             spanTexto.style.textTransform = "uppercase"
