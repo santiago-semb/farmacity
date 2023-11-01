@@ -29,11 +29,9 @@ function Guardar(){
             estado: false
         }
     
-        objTurno.id += 1
         data.push(objTurno)
     
         VaciarCampos(nombre, email, telefono, fecha, mensaje)
-        Focus(nombre)
     
         let jsonData = JSON.stringify(data)
     
@@ -41,7 +39,8 @@ function Guardar(){
     
         alertaCamposObligatorios.innerHTML = `
             <div class="alert alert-success" role="alert" style="width: 80%; margin: 0 auto; margin-top: 20px; text-align: center;">
-                Se ha solicitado el turno correctamente.
+                <p>Se ha solicitado el turno correctamente.</p>
+                <p>Su número de turno: <b style='font-size: 21px'>${objTurno.id}</b></p>
             </div>
         `
     }
@@ -63,6 +62,7 @@ function Listar(){
         <table>
         <thead>
         <tr>
+            <th>N°Turno</th>
             <th>Nombre</th>
             <th>Correo Electrónico</th>
             <th>Teléfono</th>
@@ -80,6 +80,7 @@ function Listar(){
             let icon = (data[i].estado) ? "./assets/icons/check-icon.png" : "./assets/icons/fail-icon.png"
             tbody.innerHTML += `
                 <tr class='tr-data'>
+                    <td>${data[i].id}</td>
                     <td>${data[i].nombre}</td>
                     <td>${data[i].email}</td>
                     <td>${data[i].telefono}</td>
@@ -90,6 +91,49 @@ function Listar(){
                 </tr>
             `
         }
+    }
+}
+
+function ConsultarTurno(nroTurno){
+    const divInfoTurno = document.getElementById("infoNumeroTurno")
+    let turno = data.find(((e) => e.id == nroTurno))
+    const divAlertaTurno = document.getElementById("alertaTurno")
+    if(isNaN(nroTurno)){
+        divAlertaTurno.innerHTML = `
+        <div class="alert alert-info" role="alert" style="width: 80%; margin: 0 auto; margin-top: 20px; text-align: center;">
+            Por favor ingrese un número
+        </div>
+        `
+    }else if(turno === "undefined" || turno === undefined){
+        divInfoTurno.innerHTML = ""
+        divAlertaTurno.innerHTML = `
+        <div class="alert alert-danger" role="alert" style="width: 80%; margin: 0 auto; margin-top: 20px; text-align: center;">
+            No se ha encontrado el número de turno: <b>${nroTurno}</b>
+        </div>
+        `
+    }else{
+        divAlertaTurno.innerHTML = ""
+        imgEstadoTurno = (turno.estado) ? "../../assets/icons/check-icon.png" : "../../assets/icons/fail-icon.png"
+        divInfoTurno.innerHTML = `
+            <hr>
+            <div class="card-turno">
+            <div class="container-turno">
+                <br>
+                <h4><strong>Número de turno: </strong> ${turno.id}</h4>
+                <hr>
+                <h4><strong>Estado de turno: </strong> <img style='width: 35px; height: 35px' src='${imgEstadoTurno}'></h4>
+                <hr>
+                <h4><strong>Nombre completo: </strong> <span style='text-transform: capitalize'>${turno.nombre}</span></h4>
+                <hr>
+                <h4><strong>Email: </strong> ${turno.email}</h4>
+                <hr>
+                <h4><strong>Fecha: </strong> ${turno.fecha}</h4>
+                <hr>
+                <h4><strong>Mensaje: </strong> ${turno.mensaje}</h4>
+                <br>
+            </div>
+            </div>
+        `
     }
 }
 
@@ -143,6 +187,14 @@ const VaciarCampos = (...campos) => {
         campos[i].value = ""
     }
 }
+
 const Focus = (elemento) => {
     elemento.focus()
 } 
+
+function GenerarID() {
+    let timestamp = new Date().getTime(); // Marca de tiempo actual en milisegundos
+    let random = Math.floor(Math.random() * 1000); // Número aleatorio entre 0 y 999
+    let idPedido = timestamp + '-' + random; // ID de pedido combinando marca de tiempo y número aleatorio
+    console.log(idPedido)
+}

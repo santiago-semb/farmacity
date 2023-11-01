@@ -79,24 +79,18 @@
 
     <main style="margin-bottom: 50px;">
 
-      <div id="divConsultarTurno">
-        <p class="texto-pulsante"><a href="./consulta-estado-turno.html">Consultar Estado de Turno</a></p>
-      </div>
-      
-      <div id="alertaTurnoExitoso"></div>
-      <div id="alertaCamposObligatorios"></div>
+        <div class="formulariot" id="formNumeroTurno">
+            <form>
+              <label for="numero">Ingrese N° de turno</label><br>
+              <input type="number" id="numeroTurno" class="input-fieldt" placeholder="Número de turno">
+              <br>
+              <input type="button" value="Enviar" class="submit-buttont" id="botonConsultarTurno" onclick="ConsultarTurno(parseInt(document.getElementById('numeroTurno').value))">
+            </form>
+          </div>
 
-      <div class="form-container5">
-        <h2>Solicitud de Turnos</h2>
-        <form>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required autocomplete="off">
-            <input type="email" id="email" name="email" placeholder="Correo electrónico" required autocomplete="off">
-            <input type="text" id="telefono" name="telefono" placeholder="Teléfono" required autocomplete="off">
-            <input type="date" id="fecha">
-            <textarea id="mensaje" name="mensaje" placeholder="Mensaje" style="height:200px" required autocomplete="off"></textarea>
-            <input type="submit" id="boton-enviar" value="Solicitar Turno" onclick="Guardar()">
-        </form>
-    </div>
+          <div id="alertaTurno"></div>
+          
+          <div id="infoNumeroTurno"></div>
       
     </main>
 
