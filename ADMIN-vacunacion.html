@@ -14,47 +14,30 @@
     <script src="https://kit.fontawesome.com/d3ba0e2c6d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/vacunacion/styles.css">
     <link rel="stylesheet" href="./assets/styles/admin-vacunacion/styles.css">
+    <link rel="stylesheet" href="./assets/styles/admin-inicio/styles.css">
 </head>
 <body>       
   <header id="header">
     <div class="icon-container">
-      <h1><img src="assets/img/logo-farmacity.png" class="icon" id="logo-farmacity" alt="logo-farmacity"></h1>
-      <span id="span-buscador">
-        <input type="text" class="icons" id="buscador" placeholder="Buscar producto o categoría"><i id="icon-search" class="fa-solid fa-magnifying-glass"></i>
-      </span>
-      <span>
-        <div class="dropdown">
-          <span class="dropbtn dropbtn-productos">Servicios</span>
-          <div class="dropdown-content">
-            <a href="./productos.html" style="text-decoration: none;" class="productos">Productos</a>
-            <a href="./medicamentos.html" style="text-decoration: none;" class="productos">Medicamentos</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <span class="dropbtn dropbtn-turnos">Turnos</span>
-          <div class="dropdown-content">
-            <a href="./vacunacion.html" style="text-decoration: none;" class="turnos">Vacunación</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <span class="dropbtn dropbtn-ayuda">Ayuda</span>
-          <div class="dropdown-content">
-            <a href="./sobre-nosotros.html" style="text-decoration: none;" class="ayuda">Sobre Nosotros</a>
-            <a href="./contacto.html" style="text-decoration: none;" class="ayuda">Contáctanos</a>
-            <a href="./preguntas-frecuentes.html" style="text-decoration: none;" class="ayuda">Preguntas Frecuentes</a>
-          </div>
-        </div>
-        
-      </span>
+      <h1><img src="assets/img/logo-farmacity.png" class="icon" id="logo-farmacity" alt="logo-farmacity"><span id="admin-title">admin</span></h1>
+      
+
+    <span id="menu-admin">
+        <a href="./ADMIN-inicio.html"><button class="boton-header"><i class="fa-solid fa-house-chimney"></i> <span class="textMenuAdmin">Inicio</span></button></a>
+        <a href="./ADMIN-productos.html"><button class="boton-header"><i class="fa-solid fa-bag-shopping"></i> <span class="textMenuAdmin">Productos</span></button></a>
+        <a href="./ADMIN-medicamentos.html"><button class="boton-header"><i class="fa-solid fa-kit-medical"></i> <span class="textMenuAdmin">Medicamentos</span></button></a>
+        <a href="./ADMIN-vacunacion.html"><button class="boton-header"><i class="fa-solid fa-syringe"></i> <span class="textMenuAdmin">Turnos Vacunación</span></button></a>
+    </span>
+    
+      
       <span>
         <a href="farmacity.html"><img src="./assets/img/tufarmacity.png" alt="tu-farmacity" id="logo-tufarmacity"></a>
       </span>
-      <!--<a href="" class="icon iconos" id="mis-pedidos"><i style="margin-right: 5px;" class="fa-solid fa-truck-fast"></i>Mis pedidos</a>
-      -->
     </div>
+    <div style="height: 5px; width: 100%; background-color: orangered;"></div>
 </header>
 
-    <div style="height: 5px; width: 100%; background-color: orangered;"></div>
+    
 
     <main>
         <h3 id="h3-vacunacion">Solicitudes Turnos Vacunación</h3>

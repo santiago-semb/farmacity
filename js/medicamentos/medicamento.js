@@ -208,8 +208,7 @@ function ListarMedicamentosAdmin(){
     }else{
         const divTabla = document.getElementById("container-tableMedicamentos")
         divTabla.innerHTML = `
-            <h2>Medicamentos</h2>
-            <table id="medicamentos-table">
+            <table id="medicamentos-table" class="table table-striped">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -252,7 +251,9 @@ function EliminarMedicamentoAdmin(nombre) {
 
 function ListarByNombre(nombre){
     const tbody = document.getElementById("admin-tabla-medicamentos")
+    const h2Titulo = document.getElementById("titulo-medicamento")
     let medicamento = medicamentos.find(((e) => e.nombre == nombre))
+    h2Titulo.innerHTML = medicamento.nombre
     tbody.innerHTML = `
     <tr>
         <td>${medicamento.nombre}</td>

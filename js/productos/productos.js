@@ -211,8 +211,7 @@ function ListarProductosAdmin(){
     }else{
         const divAdminTable = document.getElementById("container-table-admProductos")
         divAdminTable.innerHTML = `
-            <h2>Productos</h2>
-            <table id="product-table">
+            <table id="product-table" class="table table-striped">
                 <thead>
                 <tr>
                     <th>Nombre</th>
@@ -245,7 +244,6 @@ function ListarProductosAdmin(){
     
 }
 
-
 function EliminarProductoAdmin(nombre) {
     let index = productos.findIndex((e) => e.nombre === nombre);
 
@@ -258,7 +256,9 @@ function EliminarProductoAdmin(nombre) {
 
 function ListarByNombre(nombre){
     const tbody = document.getElementById("admin-tabla-productos")
+    const h2Titulo = document.getElementById("titulo-producto")
     let producto = productos.find(((e) => e.nombre == nombre))
+    h2Titulo.innerHTML = producto.nombre
     tbody.innerHTML = `
     <tr>
         <td>${producto.nombre}</td>

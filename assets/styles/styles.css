@@ -671,3 +671,26 @@
   }
   
 }
+
+
+#boton-admin {
+  position: fixed;
+  padding: 20px;
+  border-radius: 2em;
+  border: 1px solid #333;
+  background-color: #292929;
+  bottom: 0;
+  right: 0;
+  margin-right: 80px;
+  margin-bottom: 70px;
+  z-index: 3;
+}
+
+#boton-admin-a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+#boton-admin i {
+  font-size: 22px;
+}

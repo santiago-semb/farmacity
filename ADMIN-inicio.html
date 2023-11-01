@@ -16,9 +16,10 @@
     <link rel="stylesheet" href="./assets/styles/admin-crear-producto/styles.css">
     <link rel="stylesheet" href="./assets/styles/admin-productos/styles.css">
     <link rel="stylesheet" href="./assets/styles/admin-inicio/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>       
+<body id="body-inicio">       
   <header id="header">
     <div class="icon-container">
       <h1><img src="assets/img/logo-farmacity.png" class="icon" id="logo-farmacity" alt="logo-farmacity"><span id="admin-title">admin</span></h1>
@@ -35,52 +36,33 @@
       <span>
         <a href="farmacity.html"><img src="./assets/img/tufarmacity.png" alt="tu-farmacity" id="logo-tufarmacity"></a>
       </span>
-    </div>
-    <div style="height: 5px; width: 100%; background-color: orangered;"></div>
+    </div><div style="height: 5px; width: 100%; background-color: orangered;"></div>
 </header>
 
-    <div style="height: 5px; width: 100%; background-color: orangered;"></div>
+    
 
-    <main>
-      <h2 id="titulo-producto" style="padding-top: 10px; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"></h2>
-      <table id="product-table" style="margin-top: -10px;" class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <th>Precio</th>
-              <th>Imagen</th>
-              <th><i class="fa-solid fa-screwdriver-wrench"></i></th>
-            </tr>
-          </thead>
-          <tbody id="admin-tabla-productos"></tbody>
-      </table>
+    <main id="main-inicio">
+      <div class="section-inicio" style="background-color: #e6e6e6;">
+        <div id="chart-container" style="width: 100%; height: 400px;">
+          <canvas id="lineChart" style="margin-top: 50px;"></canvas>
+        </div>
+       
+      </div>
+      <div class="section-inicio" style="background-color: #f2f2f2;">
+        <div id="chart-container">
+          <canvas id="barChart" style="margin-top: 50px;"></canvas>
+        </div>
+      </div>
 
-
-      <div style="text-align: center; margin-top: 50px;">
-        <button class="btn btn-danger" id="boton-elim" onclick="EliminarProductoAdmin(obtenerNombreDeUrl())">Eliminar</button>
-      </div>  
-      
-      
     </main>
 
 
-</body>
-<script>
-    function obtenerNombreDeUrl() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('nombre');
-    }
-  
-    document.addEventListener("DOMContentLoaded", function() {
-        // Obtener parámetros de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        // Obtener el valor del parámetro 'id'
-        const nombre = urlParams.get('nombre');
-        ListarByNombre(nombre)
-    });
     
-  </script>
+
+</body>
+
+
+<script src="js/estadisticas/graficos.js"></script>
 <script src="./js/productos/productos.js"></script>
 <script src="farmacity/jquery.js"></script>
 </html>

@@ -1,0 +1,56 @@
+#admin-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-left: -30px;
+    font-weight: bold;
+    background-color: #0a0a0a;
+    color: white;
+    padding: 5px;
+}
+
+.boton-header {
+    padding: 10px;
+    margin-top: 35px;
+    border: none;
+    color: gray;
+    background-color: whitesmoke;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: 200ms all;
+    border-radius: 0.2em;
+}
+
+.boton-header:hover {
+    color: rgb(233, 90, 38);
+}
+
+.boton-header i {
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+#menu-admin a {
+    text-decoration: none;
+    color: gray;
+}
+
+.textMenuAdmin {
+    font-weight: bold;
+}
+
+#body-inicio {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+  }
+  
+#main-inicio {
+    display: flex;
+    flex: 1;
+}
+.section-inicio {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
