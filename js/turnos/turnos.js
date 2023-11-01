@@ -11,8 +11,8 @@ function Guardar(){
 
     let identificador = data.length > 0 ? data[data.length - 1].id + 1 : 1;
 
-    if(nombre.value == "" || email.value == "" || telefono.value == "" || fecha.value == ""){
-        let alertaCamposObligatorios = document.getElementById("alertaCamposObligatorios")
+    const alertaCamposObligatorios = document.getElementById("alertaCamposObligatorios")
+    if(nombre.value == "" || email.value == "" || telefono.value == "" || fecha.value == ""){     
         alertaCamposObligatorios.innerHTML = `
         <div class="alert alert-danger" role="alert" style="width: 80%; margin: 0 auto; margin-top: 20px; text-align: center;">
             El formulario no puede estar vacío
@@ -39,9 +39,7 @@ function Guardar(){
     
         localStorage.setItem("data", jsonData)
     
-        document.getElementById("alertaCamposObligatorios").innerHTML = ""
-        let alertaTurnoExitoso = document.getElementById("alertaTurnoExitoso")
-        alertaTurnoExitoso.innerHTML = `
+        alertaCamposObligatorios.innerHTML = `
             <div class="alert alert-success" role="alert" style="width: 80%; margin: 0 auto; margin-top: 20px; text-align: center;">
                 Se ha solicitado el turno correctamente.
             </div>
@@ -59,6 +57,8 @@ function Listar(){
         </div>
         `
     }else{
+        const h3Titulo = document.getElementById("h3-vacunacion")
+        h3Titulo.innerHTML = "Solicitudes Turnos Vacunación"
         tabla.innerHTML = `
         <table>
         <thead>

@@ -2,6 +2,22 @@ let productos = JSON.parse(localStorage.getItem("productos")) || []
 
 if(window.location.pathname == "/productos.html") ListarProductos()
 if(window.location.pathname == "/ADMIN-productos.html") ListarProductosAdmin()
+if(window.location.pathname == "/ADMIN-editar-producto.html") MostrarEditarProductoAdmin()
+
+if(window.location.pathname == "/ADMIN-editar-producto.html"){
+    let botonEditar = document.getElementById("btn-edit")
+    botonEditar.addEventListener("click", (e) => {
+        e.preventDefault()
+        const nombreUrlData = ObtenerParamBy('nombre')
+        let producto = productos.find(((e) => e.nombre == nombreUrlData))
+            producto.nombre = document.getElementById("nombreEdit").value
+            producto.descripcion = document.getElementById("descripcionEdit").value
+            producto.precio = parseInt(document.getElementById("precioEdit").value)
+            producto.img = document.getElementById("imagenEdit").value
+        localStorage.setItem('productos', JSON.stringify(productos))
+        window.location.href = "../../ADMIN-productos.html"
+    })
+}
 
 function CargarProducto(){
   let nombreProducto = document.getElementById("productName")
@@ -116,13 +132,15 @@ function openCart() {
     
     if(cart.length == 0){
         let itemContainer = document.createElement("div");
-            itemContainer.style.marginTop = "30px";
+            itemContainer.style.marginTop = "10px";
             itemContainer.style.marginBottom = "30px";
             itemContainer.classList.add("cart-item");
 
         let pNoItems = document.createElement("span")
-        pNoItems.textContent = `El carrito esta vacío :(`
-        pNoItems.style.fontSize = "17px"
+        pNoItems.textContent = `El carrito esta vacío...`
+        pNoItems.style.fontSize = "25px"
+        pNoItems.style.marginLeft = "20px"
+
         pNoItems.style.fontWeight = "bold"
 
         itemContainer.appendChild(pNoItems)
@@ -130,7 +148,7 @@ function openCart() {
     }else{
         cart.forEach(item => {
             let itemContainer = document.createElement("div");
-            itemContainer.style.marginTop = "30px";
+            itemContainer.style.marginTop = "10px";
             itemContainer.style.marginBottom = "30px";
             itemContainer.classList.add("cart-item");
     
@@ -144,7 +162,7 @@ function openCart() {
     
             spanTexto.style.marginLeft = "5px"
             spanTexto.style.marginRight = "5px"
-            spanTexto.style.textTransform = "uppercase"
+            spanTexto.style.textTransform = "capitalize"
             spanTexto.style.fontSize = "18px"
     
             spanPrecio.style.fontWeight = "bold"
@@ -214,10 +232,10 @@ function ListarProductosAdmin(){
             <table id="product-table" class="table table-striped">
                 <thead>
                 <tr>
+                    <th></th>
                     <th>Nombre</th>
                     <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Imagen</th>
+                    <th>Precio</th>  
                     <th><i class="fa-solid fa-screwdriver-wrench"></i></th>
                 </tr>
             </thead>
@@ -229,10 +247,10 @@ function ListarProductosAdmin(){
             tbody.innerHTML += `
             
             <tr>
-                <td id="product-name1">${productos[i].nombre}</td>
-                <td id="product-description1">${productos[i].descripcion}</td>
-                <td id="product-price1">$${productos[i].precio}</td>
-                <td><img src="${productos[i].img}" alt="Imagen del producto 1"></td>
+                <td><img style='height: 60px; width: 50px' src="${productos[i].img}" alt="Imagen del producto 1"></td>
+                <td>${productos[i].nombre}</td>
+                <td>${productos[i].descripcion}</td>
+                <td>$ ${productos[i].precio}</td>
                 <td>
                     <a href='../../ADMIN-gestion-productos.html?nombre=${productos[i].nombre}'><button class='btn btn-info'><i class="fa-solid fa-pen-to-square"></i></button></a>
                 </td>
@@ -261,11 +279,55 @@ function ListarByNombre(nombre){
     h2Titulo.innerHTML = producto.nombre
     tbody.innerHTML = `
     <tr>
+        <td><img class="icons-check-and-fail" src="${producto.img}" alt=""></td>
         <td>${producto.nombre}</td>
         <td>${producto.descripcion}</td>
-        <td>${producto.precio}</td>
-        <td><img class="icons-check-and-fail" src="${producto.img}" alt=""></td>
-        <td><button class='btn btn-warning'><i class="fa-solid fa-pen"></i></button></td>
+        <td>$ ${producto.precio}</td>     
+        <td>
+            <a href='../../ADMIN-editar-producto.html?nombre=${producto.nombre}'><button class='btn btn-warning'><i class="fa-solid fa-pen"></i></button></a>
+        </td>
     </tr>
     `
 }
+
+function MostrarEditarProductoAdmin(){
+    const nombreUrlData = ObtenerParamBy('nombre')
+    let producto = productos.find(((e) => e.nombre == nombreUrlData))
+    const main = document.getElementById("mainEditarProducto")
+    main.innerHTML = `
+    
+        <div class="form-container">
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombreEdit" name="nombre" value='${producto.nombre}' required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcionEdit" name="descripcion" required autocomplete="off">${producto.descripcion}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="number" id="precioEdit" name="precio" value='${producto.precio}' required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="imagen">Imagen</label>
+                <input type="text" id="imagenEdit" name="imagen" value='${producto.img}' required autocomplete="off">
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <input type="submit" value="Actualizar" id='btn-edit'>
+            </div>
+        </form>
+        </div>
+
+    `
+}
+
+function ObtenerParamBy(clave){
+    // Obtener parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    // Obtener el valor del parámetro 'id'
+    const data = urlParams.get(clave);
+    return data
+}
+

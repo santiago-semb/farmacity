@@ -8,7 +8,10 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     if (username === "profesistemas" && password === "undiezporfa") {
         window.location.href = "../../ADMIN-inicio.html"
     } else {
-      alert("Nombre de usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.");
+      const divErr = document.getElementById("credentialsErr")
+      divErr.innerHTML = `
+        <p style='color: red;'>Contraseña incorrecta.</p>
+      `
     }
  });
   

@@ -2,6 +2,23 @@ let medicamentos = JSON.parse(localStorage.getItem("medicamentos")) || []
 
 if(window.location.pathname == "/medicamentos.html") ListarMedicamentos()
 if(window.location.pathname == "/ADMIN-medicamentos.html") ListarMedicamentosAdmin()
+if(window.location.pathname == "/ADMIN-editar-medicamento.html") MostrarEditarMedicamentoAdmin()
+
+if(window.location.pathname == "/ADMIN-editar-medicamento.html"){
+    let botonEditar = document.getElementById("btn-edit")
+    botonEditar.addEventListener("click", (e) => {
+    e.preventDefault()
+    const nombreUrlData = ObtenerParamBy('nombre')
+    let medicamento = medicamentos.find(((e) => e.nombre == nombreUrlData))
+        medicamento.nombre = document.getElementById("nombreEdit").value
+        medicamento.descripcion = document.getElementById("descripcionEdit").value
+        medicamento.precio = parseInt(document.getElementById("precioEdit").value)
+        medicamento.img = document.getElementById("imagenEdit").value
+    localStorage.setItem('medicamentos', JSON.stringify(medicamentos))
+    window.location.href = "../../ADMIN-medicamentos.html"
+})
+}
+
 
 function CargarMedicamento(){
   let nombreProducto = document.getElementById("productName")
@@ -115,13 +132,16 @@ function openCart() {
 
     if(cart.length == 0){
         let itemContainer = document.createElement("div");
-            itemContainer.style.marginTop = "30px";
+            itemContainer.style.marginTop = "10px";
             itemContainer.style.marginBottom = "30px";
             itemContainer.classList.add("cart-item");
 
         let pNoItems = document.createElement("span")
-        pNoItems.textContent = `El carrito esta vacío :(`
-        pNoItems.style.fontSize = "17px"
+
+        pNoItems.textContent = `El carrito esta vacío...`
+        pNoItems.style.fontSize = "25px"
+        pNoItems.style.marginLeft = "20px"
+
         pNoItems.style.fontWeight = "bold"
 
         itemContainer.appendChild(pNoItems)
@@ -129,7 +149,7 @@ function openCart() {
     }else{
         cart.forEach(item => {
             let itemContainer = document.createElement("div");
-            itemContainer.style.marginTop = "30px";
+            itemContainer.style.marginTop = "10px";
             itemContainer.style.marginBottom = "30px";
             itemContainer.classList.add("cart-item");
 
@@ -143,7 +163,7 @@ function openCart() {
 
             spanTexto.style.marginLeft = "5px"
             spanTexto.style.marginRight = "5px"
-            spanTexto.style.textTransform = "uppercase"
+            spanTexto.style.textTransform = "capitalize"
             spanTexto.style.fontSize = "18px"
 
             spanPrecio.style.fontWeight = "bold"
@@ -211,10 +231,10 @@ function ListarMedicamentosAdmin(){
             <table id="medicamentos-table" class="table table-striped">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio</th>
-                    <th>Imagen</th>
                     <th><i class="fa-solid fa-screwdriver-wrench"></i></th>
                 </tr>
             </thead>
@@ -225,10 +245,10 @@ function ListarMedicamentosAdmin(){
         for(let i=0; i<medicamentos.length; i++){
             tbody.innerHTML += ` 
                 <tr>
-                    <td id="product-name1">${medicamentos[i].nombre}</td>
-                    <td id="product-description1">${medicamentos[i].descripcion}</td>
-                    <td id="product-price1">$${medicamentos[i].precio}</td>
-                    <td><img src="${medicamentos[i].img}" alt="Imagen del producto 1" id="product-image1"></td>
+                <td><img style='height: 60px; width: 50px' src="${medicamentos[i].img}" alt="Imagen del producto 1" id="product-image1"></td>
+                    <td>${medicamentos[i].nombre}</td>
+                    <td>${medicamentos[i].descripcion}</td>
+                    <td>$ ${medicamentos[i].precio}</td>            
                     <td>
                         <a href='../../ADMIN-gestion-medicamentos.html?nombre=${medicamentos[i].nombre}'><button class='btn btn-info'><i class="fa-solid fa-pen-to-square"></i></button></a>
                     </td>
@@ -256,11 +276,54 @@ function ListarByNombre(nombre){
     h2Titulo.innerHTML = medicamento.nombre
     tbody.innerHTML = `
     <tr>
+        <td><img class="icons-check-and-fail" src="${medicamento.img}" alt=""></td>
         <td>${medicamento.nombre}</td>
         <td>${medicamento.descripcion}</td>
-        <td>${medicamento.precio}</td>
-        <td><img class="icons-check-and-fail" src="${medicamento.img}" alt=""></td>
-        <td><button class='btn btn-warning'><i class="fa-solid fa-pen"></i></button></td>
+        <td>$ ${medicamento.precio}</td>    
+        <td>
+            <a href='../../ADMIN-editar-medicamento.html?nombre=${medicamento.nombre}'><button class='btn btn-warning'><i class="fa-solid fa-pen"></i></button></a>
+        </td>
     </tr>
     `
+}
+
+function MostrarEditarMedicamentoAdmin(){
+    const nombreUrlData = ObtenerParamBy('nombre')
+    let medicamento = medicamentos.find(((e) => e.nombre == nombreUrlData))
+    const main = document.getElementById("mainEditarMedicamento")
+    main.innerHTML = `
+    
+        <div class="form-container">
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombreEdit" name="nombre" value='${medicamento.nombre}' required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcionEdit" name="descripcion" required autocomplete="off">${medicamento.descripcion}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="number" id="precioEdit" name="precio" value='${medicamento.precio}' required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="imagen">Imagen</label>
+                <input type="text" id="imagenEdit" name="imagen" value='${medicamento.img}' required autocomplete="off">
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <input type="submit" value="Actualizar" id='btn-edit'>
+            </div>
+        </form>
+        </div>
+
+    `
+}
+
+function ObtenerParamBy(clave){
+    // Obtener parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    // Obtener el valor del parámetro 'id'
+    const data = urlParams.get(clave);
+    return data
 }
