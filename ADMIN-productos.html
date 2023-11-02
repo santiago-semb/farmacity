@@ -25,10 +25,10 @@
       
 
     <span id="menu-admin">
-        <a href="./ADMIN-inicio.html"><button class="boton-header"><i class="fa-solid fa-house-chimney"></i> <span class="textMenuAdmin">Inicio</span></button></a>
-        <a href="./ADMIN-productos.html"><button class="boton-header"><i class="fa-solid fa-bag-shopping"></i> <span class="textMenuAdmin">Productos</span></button></a>
-        <a href="./ADMIN-medicamentos.html"><button class="boton-header"><i class="fa-solid fa-kit-medical"></i> <span class="textMenuAdmin">Medicamentos</span></button></a>
-        <a href="./ADMIN-vacunacion.html"><button class="boton-header"><i class="fa-solid fa-syringe"></i> <span class="textMenuAdmin">Turnos Vacunación</span></button></a>
+        <a href="./ADMIN-inicio.html" onclick="marcarSeccionActiva('inicio')"><button class="boton-header"><i class="fa-solid fa-house-chimney"></i> <span class="textMenuAdmin">Inicio</span></button></a>
+        <a href="./ADMIN-productos.html" onclick="marcarSeccionActiva('productos')"><button class="boton-header"><i class="fa-solid fa-bag-shopping"></i> <span class="textMenuAdmin">Productos</span></button></a>
+        <a href="./ADMIN-medicamentos.html" onclick="marcarSeccionActiva('medicamentos')"><button class="boton-header"><i class="fa-solid fa-kit-medical"></i> <span class="textMenuAdmin">Medicamentos</span></button></a>
+        <a href="./ADMIN-vacunacion.html" onclick="marcarSeccionActiva('vacunacion')"><button class="boton-header"><i class="fa-solid fa-syringe"></i> <span class="textMenuAdmin">Turnos Vacunación</span></button></a>
     </span>
     
       
@@ -52,18 +52,18 @@
 
       <form id="productForm" enctype="multipart/form-data" style="margin-top: 3px; border-radius: 0;">
           <label for="productName">Nombre del Producto</label><br>
-          <input type="text" id="productName" name="productName"><br><br>
+          <input type="text" id="productName" name="productName" class="inputForm"><br><br>
   
           <label for="productDescription">Descripción del Producto</label><br>
-          <textarea id="productDescription" name="productDescription" rows="4" cols="50"></textarea><br><br>
+          <textarea id="productDescription" name="productDescription" rows="4" cols="50" class="inputForm"></textarea><br><br>
   
           <label for="productPrice">Precio del Producto</label><br>
-          <input type="number" id="productPrice" name="productPrice" step="0.01"><br><br>
+          <input type="number" id="productPrice" name="productPrice" step="0.01" class="inputForm"><br><br>
   
           <label for="productImage">Imagen del Producto</label><br>
           <input type="text" id="productImage" name="productImage"><br><br>
   
-          <input type="submit" onclick="CargarProducto()" id="boton-crear-producto" value="Crear Producto">
+          <input type="button" onclick="CargarProducto()" id="boton-crear-producto" value="Crear Producto">
       </form>
   </div>
 
@@ -72,6 +72,7 @@
 
 
 </body>
+<script src="./js/admin/admin.js"></script>
 <script src="./js/productos/productos.js"></script>
 <script src="farmacity/jquery.js"></script>
 </html>

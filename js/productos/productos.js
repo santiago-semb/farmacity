@@ -25,17 +25,29 @@ function CargarProducto(){
   let precioProducto = document.getElementById("productPrice")
   let imgProducto = document.getElementById("productImage")
 
-  let objProducto = {
-    nombre: nombreProducto.value,
-    descripcion: descripcionProducto.value,
-    precio: parseInt(precioProducto.value),
-    img: imgProducto.value
+  if(nombreProducto.value == "" || descripcionProducto.value == "" || isNaN(parseInt(precioProducto.value)) || imgProducto.value == ""){
+
+        if(nombreProducto.value == ""){resaltarInput('productName', 'red')}else{resaltarInput('productName', 'none')}
+        if(descripcionProducto.value == ""){resaltarInput('productDescription', 'red')}else{resaltarInput('productDescription', 'none')}
+        if(isNaN(parseInt(precioProducto.value))){resaltarInput('productPrice', 'red')}else{resaltarInput('productPrice', 'none')}
+        if(imgProducto.value == ""){resaltarInput('productImage', 'red')}else{resaltarInput('productImage', 'none')}
+
+  }else{
+
+    let objProducto = {
+        nombre: nombreProducto.value,
+        descripcion: descripcionProducto.value,
+        precio: parseInt(precioProducto.value),
+        img: imgProducto.value
+      }
+    
+      productos.push(objProducto)
+    
+      let jsonProductos = JSON.stringify(productos)
+      localStorage.setItem("productos", jsonProductos)
+
+      window.location.reload()
   }
-
-  productos.push(objProducto)
-
-  let jsonProductos = JSON.stringify(productos)
-  localStorage.setItem("productos", jsonProductos)
 }
 
 function ListarProductos(){
@@ -331,3 +343,12 @@ function ObtenerParamBy(clave){
     return data
 }
 
+function resaltarInput(idElement, color) {
+    let input = document.getElementById(idElement)
+    //let label = input.previousElementSibling
+    if(color == "none"){
+        input.style.border = "1px solid #ddd"
+    }else{
+        input.style.border = `2px solid ${color}`;
+    } 
+}

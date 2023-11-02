@@ -1,6 +1,7 @@
 .container2 {
     display: flex;
     width: 100%;
+    background-color: rgb(247, 242, 242);
 }
 
 .main-content2 {
@@ -38,12 +39,14 @@ label {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: whitesmoke;
 }
 
 #mensaje:focus,
 #nombre:focus,
 #email:focus {
     outline: none;
+    border: 2px solid green;
 }
 
 #mensaje {
@@ -61,7 +64,8 @@ label {
 }
 
 #bt-enviar:hover {
-    background-color: rgb(17, 16, 16);
+    background-color: rgb(40, 134, 40);
+    color: whitesmoke;
 }
 
 h4 {

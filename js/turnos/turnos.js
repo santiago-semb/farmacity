@@ -129,7 +129,7 @@ function ConsultarTurno(nroTurno){
                 <hr>
                 <h4><strong>Fecha: </strong> ${turno.fecha}</h4>
                 <hr>
-                <h4><strong>Mensaje: </strong> ${turno.mensaje}</h4>
+                <h4><strong>Mensaje: </strong> <span class='msg'>${turno.mensaje}</span></h4>
                 <br>
             </div>
             </div>
@@ -197,4 +197,14 @@ function GenerarID() {
     let random = Math.floor(Math.random() * 1000); // Número aleatorio entre 0 y 999
     let idPedido = timestamp + '-' + random; // ID de pedido combinando marca de tiempo y número aleatorio
     console.log(idPedido)
+}
+
+function resaltarInput(idElement, color) {
+    let input = document.getElementById(idElement)
+    //let label = input.previousElementSibling
+    if(color == "none"){
+        input.style.border = "1px solid #ddd"
+    }else{
+        input.style.border = `2px solid ${color}`;
+    } 
 }

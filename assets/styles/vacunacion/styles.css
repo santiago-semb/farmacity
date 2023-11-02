@@ -131,3 +131,9 @@ h2 {
   .card-turno p {
     margin: 0;
   }
+
+
+.msg {
+  max-width: 300px; /* Establece el ancho máximo del contenedor según sea necesario */
+  word-wrap: break-word; /* Permite que el texto se divida en palabras si es necesario */
+}
