@@ -186,8 +186,13 @@
 </body>
 <script>
   // JavaScript para mostrar el overlay
-  var overlay = document.getElementById('overlay');
+  let overlay = document.getElementById('overlay');
   
+  if(!localStorage.getItem("presentacion")){
+    mostrarPopUp()
+  }
+  
+
   // Mostrar el overlay
   function openPopup() {
       overlay.style.display = 'flex';
@@ -196,11 +201,12 @@
   // Cerrar el overlay
   function closePopup() {
       overlay.style.display = 'none';
+      localStorage.setItem("presentacion", true)
   }
   
   // Mostrar la siguiente información
   function showNext() {
-      var popup = document.querySelector('.popup');
+      let popup = document.querySelector('.popup');
       popup.innerHTML = `
           <h2>Integrantes del grupo</h2><hr>
           <p><img src='./assets/icons/userimg.jfif' style='width: 40px; height: 40px'> <a href='#'>Jorge Emanuel Vélez</a></p>
@@ -211,9 +217,12 @@
           <hr><button class="button-alert" onclick="closePopup()">OK</button>
       `;
   }
-  
-  // Mostrar el overlay al cargar la página
-  window.onload = openPopup;
+
+  function mostrarPopUp(){
+    // Mostrar el overlay al cargar la página
+    window.onload = openPopup;
+  }
+
   </script>
 <script src="farmacity/jquery.js"></script>
 </html>
