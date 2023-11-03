@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmacity</title>
     <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="./assets/styles/alert/styles.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -135,6 +136,19 @@
     </div>
       
       
+    <div class="overlay" id="overlay">
+      <div class="popup">
+        <h2><img src="./assets/icons/logo-cervantes.jfif" style="width: 150px; height: 150px; margin-bottom: 20px;"><br>Segundo Parcial Sistemas II</h2>
+        <hr>
+        <p>Esta página corresponde a el segundo parcial de la materia Sistemas II.</p>
+        <p>La página fue creada para cumplir los requerimientos de nuestra organización (<img src="./assets/img/logo-farmacity2.png" style="width: 40px; height: 40px;"> <b>Farmacity S.A</b>)</p>
+        <p></p>
+        <br>
+        <button class="button-alert" onclick="showNext()">Siguiente</button>
+      </div>
+    </div>
+
+
 
     </main>
 
@@ -170,5 +184,36 @@
   </div>
 
 </body>
+<script>
+  // JavaScript para mostrar el overlay
+  var overlay = document.getElementById('overlay');
+  
+  // Mostrar el overlay
+  function openPopup() {
+      overlay.style.display = 'flex';
+  }
+  
+  // Cerrar el overlay
+  function closePopup() {
+      overlay.style.display = 'none';
+  }
+  
+  // Mostrar la siguiente información
+  function showNext() {
+      var popup = document.querySelector('.popup');
+      popup.innerHTML = `
+          <h2>Integrantes del grupo</h2><hr>
+          <p><img src='./assets/icons/userimg.jfif' style='width: 40px; height: 40px'> <a href='#'>Jorge Emanuel Vélez</a></p>
+          <p><img src='./assets/icons/userimg.jfif' style='width: 40px; height: 40px'> <a href='#'>Pedro Sánchez</a></p>
+          <p><img src='./assets/icons/userimg.jfif' style='width: 40px; height: 40px'> <a href='#'>Juan Ignacio Videla</a></p>
+          <p><img src='./assets/icons/userimg.jfif' style='width: 40px; height: 40px'> <a href='#'>Santiago Sembini</a></p>
+          <p><img src='./assets/icons/userimg.jfif' style='width: 40px; height: 40px'> <a href='#'>Mateo Luca Ardiles Rivadeneira</a></p>
+          <hr><button class="button-alert" onclick="closePopup()">OK</button>
+      `;
+  }
+  
+  // Mostrar el overlay al cargar la página
+  window.onload = openPopup;
+  </script>
 <script src="farmacity/jquery.js"></script>
 </html>

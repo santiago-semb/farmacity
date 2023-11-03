@@ -99,6 +99,7 @@ function ConsultarTurno(nroTurno){
     let turno = data.find(((e) => e.id == nroTurno))
     const divAlertaTurno = document.getElementById("alertaTurno")
     if(isNaN(nroTurno)){
+        divInfoTurno.innerHTML = ""
         divAlertaTurno.innerHTML = `
         <div class="alert alert-info" role="alert" style="width: 80%; margin: 0 auto; margin-top: 20px; text-align: center;">
             Por favor ingrese un número

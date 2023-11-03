@@ -13,8 +13,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/d3ba0e2c6d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/vacunacion/styles.css">
-    <link rel="stylesheet" href="./assets/styles/admin-vacunacion/styles.css">
+    <link rel="stylesheet" href="./assets/styles/admin-crear-producto/styles.css">
+    <link rel="stylesheet" href="./assets/styles/admin-medicamentos/styles.css">
     <link rel="stylesheet" href="./assets/styles/admin-inicio/styles.css">
+    <link rel="stylesheet" href="./assets/styles/admin-formulario-empleado/styles.css">
 </head>
 <body>       
   <header id="header">
@@ -38,48 +40,52 @@
     <div style="height: 5px; width: 100%; background-color: orangered;"></div>
 </header>
 
-    <div style="height: 5px; width: 100%; background-color: orangered;"></div>
-
     <main>
-        <h3 id="h3-vacunacion" style="margin: 0 auto; margin-top: 20px;">Gestionar Turno</h3>
-        <table>
-           <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Correo Electrónico</th>
-                <th>Teléfono</th>
-                <th>Fecha</th>
-                <th>Mensaje</th>
-                <th>Estado</th>
-              </tr>
-           </thead>
-            <tbody id="tbody-tabla-gestion-vacunacion"></tbody>
-        </table>
 
-        <div class="form-container10">
-            <button class="accept" id="boton-aceptar" onclick="AceptarTurno(obtenerIdDeUrl())">Aceptar</button>
-            <button class="reject" id="boton-rechazar" onclick="RechazarTurno(obtenerIdDeUrl())">Rechazar</button>
-        </div>
+      <h2 id="titulo-medicamento-farmacity" style="padding-top: 10px; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; margin-bottom: 0px;"></h2>
+
       
-    </main>
+      <form id="gestion-empleado-farmacity" >
+        <section class="formulario-farmacity">
+            <input type="text" placeholder="Empleado" id="_txtEmpleado-farmacity" class="campo-farmacity">
+            <input type="number" placeholder="N° Legajo" id="_txtLegajo-farmacity" class="campo-farmacity">
+            <input type="date" placeholder="Fecha" id="_txtFecha-farmacity" class="campo-farmacity">
+            <label for="Turno">Selecciona un turno:</label>
+            <select  id="_txtTurno-farmacity"  class="campo-farmacity">
+                <option value="Mañana" id="dia" >Mañana</option>
+                <option value="Tarde" id="tarde">Tarde</option>
+                <option value="Noche" id="noche">Noche</option>
+            </select>
+            <label for="Asistencia">Asistencia</label>
+            <select  id="_txtAsistencia-farmacity" class="campo-farmacity">
+                <option value="Asistio" id="si">SI</option>
+                <option value="No asistio" id="no">NO</option>
+            </select>
+        </section>
+        <section>
+            <input type="button" value="Guardar" onclick="Guardar()" class="boton-farmacity">
+            <input type="button" value="Listar" onclick="Listar()" class="boton-farmacity">
+            <input type="button" value="Ver Estadisticas" onclick="Estadisticas()" class="boton-farmacity">
+        </section>
+    </form>
+    
+</main>
+<div id="container-tabla">
+  
 
+  <tbody id="admin-tabla-empleados-farmacity">
+  </tbody>
+</table>
+</div>
+
+<div id="container-estadisticas">
+  
+</div>
+
+<footer style="margin-top: 50px;"></footer>
 
 </body>
-<script>
-  function obtenerIdDeUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return parseInt(urlParams.get('id'));
-  }
+<script src="./js/admin-empleado-farmacity/admin-farmacity.js"></script>
+<script src="./js/admin-empleado/admin.js"></script>
 
-  document.addEventListener("DOMContentLoaded", function() {
-      // Obtener parámetros de la URL
-      const urlParams = new URLSearchParams(window.location.search);
-      // Obtener el valor del parámetro 'id'
-      const id = urlParams.get('id');
-      ListarById(id)
-  });
-  
-</script>
-<script src="js/turnos/turnos.js"></script>
-<script src="farmacity/jquery.js"></script>
 </html>

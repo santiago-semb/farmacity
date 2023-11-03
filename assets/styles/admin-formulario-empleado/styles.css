@@ -1,0 +1,146 @@
+/* Estilos para el header */
+#header-farmacity {
+    background-color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.icon-container-farmacity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-farmacity {
+    max-height: 40px;
+    margin-right: 10px;
+}
+
+#admin-title-farmacity {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#menu-admin-farmacity {
+    display: flex;
+    align-items: center;
+}
+
+.boton-header-farmacity {
+    margin: 0 10px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.textMenuAdmin-farmacity {
+    margin-left: 5px;
+}
+
+#logo-tufarmacity {
+    max-height: 40px;
+}
+
+.header-divider-farmacity {
+    height: 5px;
+    width: 100%;
+    background-color: orangered;
+}
+
+/* Estilos para la tabla */
+#titulo-medicamento-farmacity {
+    padding-top: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#medicamentos-table-farmacity {
+    margin-top: -10px;
+}
+
+/* Estilos para el formulario */
+.formulario-farmacity {
+    max-width: 400px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.campo-farmacity {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.campo-farmacity:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+.boton-farmacity {
+    background-color: orangered;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 10px;
+    transition: 500ms;
+    margin-bottom: 25px;
+}
+
+.boton-farmacity:hover {
+    color: #000;
+}
+
+form#gestion-empleado-farmacity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 600px;
+    margin-top: 0;
+}
+
+/* Estilos para las estadísticas */
+#container-estadisticas2 {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pEstadisticas {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#pEstadisticas strong {
+    font-weight: bold;
+    color: #2e4f72;
+}
+
+#container-estadisticas2 > p {
+    margin-bottom: 10px;
+}
+
+#pEstadisticas > span {
+    font-weight: bold;
+    color: #076bd6;
+}
+
