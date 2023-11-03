@@ -1,5 +1,7 @@
 let Lista= JSON.parse(localStorage.getItem("tablaEmpleado")) || []
 
+Listar()
+Estadisticas()
 
 function Guardar(){
     const empleado=document.getElementById("_txtEmpleado-farmacity")
@@ -22,9 +24,8 @@ function Guardar(){
             Legajo:legajo.value,
             Fecha:fecha.value,
             Turno:turno.value,
-            Asistencia:asistencia.value
+            Asistencia: asistencia.value 
         }
-
         resaltarInput('_txtEmpleado-farmacity', 'none')
         resaltarInput('_txtLegajo-farmacity', 'none')
         resaltarInput('_txtFecha-farmacity', 'none')
@@ -36,42 +37,50 @@ function Guardar(){
         legajo.value=""
         fecha.value=""
         empleado.focus()
+        Listar()
+        Estadisticas()
     }
 
 }
 
 function Listar(){
+    const divNoProducts = document.getElementById("alert-noProducts")
     if(Lista.length===0){
-        
+        divNoProducts.innerHTML = `
+        <div id="alert" class="alertpr"> 
+        <i class="fa-solid fa-person-falling-burst"></i> No hay empleados disponibles
+        </div>
+        `
     }else{ 
+        divNoProducts.innerHTML = ""
         const _tabla=document.getElementById("container-tabla")
         _tabla.innerHTML=`
-        <table id="medicamentos-table" style="margin-top: -10px;" class="table table-striped">
-    <thead>
-      <tr>
-        <th>Empleado</th>
-        <th>N° Legajo</th>
-        <th>Fecha</th>
-        <th>Turno</th>
-        <th>Asistencia</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="admin-tabla-empleados-farmacity">
-  </tbody>
-</table>`
+        <table id="product-table" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Empleado</th>
+            <th>N° Legajo</th>
+            <th>Fecha</th>
+            <th>Turno</th>
+            <th>Asistencia</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="admin-tabla-empleados-farmacity"></tbody>
+        </table>`
 
     const _tbody=document.getElementById("admin-tabla-empleados-farmacity")
     _tbody.innerHTML=""
         for(i=0;i<Lista.length;i++){
+            let asistencia = (Lista[i].Asistencia == "Asistio") ? `<i class="fa-regular fa-circle-check" style='font-size: 30px; color: green'></i>` : `<i class="fa-regular fa-circle-xmark" style='font-size: 30px; color: red'></i>`
             _tbody.innerHTML+=`
             <tr>
-                <td> ${Lista[i].Empleado}</td>
-                <td> ${Lista[i].Legajo}</td>
-                <td> ${Lista[i].Fecha}</td>
-                <td> ${Lista[i].Turno}</td>
-                <td> ${Lista[i].Asistencia}</td>
-                <td><a class='btn-delete-empleado' name='${Lista[i].Legajo}'><i class="fa-solid fa-delete-left"></i></a></td>
+                <td>${Lista[i].Empleado}</td>
+                <td>${Lista[i].Legajo}</td>
+                <td>${Lista[i].Fecha}</td>
+                <td>${Lista[i].Turno}</td>
+                <td>${asistencia}</td>
+                <td><a class='btn-delete-empleado' name='${Lista[i].Legajo}'><i class="fa-regular fa-trash-can"></i></a></td>
             </tr>
             `
         }
@@ -84,7 +93,7 @@ function Listar(){
                 let indexOfEmpleado = Lista.indexOf(empleado)
                 Lista.splice(indexOfEmpleado, 1)
                 localStorage.setItem("tablaEmpleado", JSON.stringify(Lista))
-                Listar()
+                window.location.reload()
             })
         })
         
@@ -165,12 +174,12 @@ _pEstadisticas.innerHTML=`
     
   
 <p id="pEstadisticas">
-Total de empleado: ${acumEmpleado} <br>
-Total de empleados del turno: ${tm} ${acumTurnoTm} <br>
-Total de empleados del turno: ${tt} ${acumTurnoTt} <br>
-Total de empleados del turno: ${tn} ${acumTurnoTn} <br>
-Porcentaje de empleados que NO asistieron: ${totalNoASISTIO.toFixed(2)}% <br>
-Porcentaje de empleados que SI asistieron: ${totalAsistio.toFixed(2)}% <br>
+Total de empleado: <b>${acumEmpleado}</b> <br>
+Total de empleados del turno ${tm}: <b>${acumTurnoTm}</b> <br>
+Total de empleados del turno ${tt}: <b>${acumTurnoTt}</b> <br>
+Total de empleados del turno ${tn}: <b>${acumTurnoTn}</b> <br>
+Porcentaje de empleados que NO asistieron: <b>${totalNoASISTIO.toFixed(2)}%</b> <br>
+Porcentaje de empleados que SI asistieron: <b>${totalAsistio.toFixed(2)}%</b> <br>
 </p>
 </div>
 `

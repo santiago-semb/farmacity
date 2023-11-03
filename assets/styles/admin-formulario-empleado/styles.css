@@ -1,73 +1,11 @@
-/* Estilos para el header */
-#header-farmacity {
-    background-color: #ffffff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.icon-container-farmacity {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.icon-farmacity {
-    max-height: 40px;
-    margin-right: 10px;
-}
-
-#admin-title-farmacity {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-#menu-admin-farmacity {
-    display: flex;
-    align-items: center;
-}
-
-.boton-header-farmacity {
-    margin: 0 10px;
-    background-color: #007BFF;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.textMenuAdmin-farmacity {
-    margin-left: 5px;
-}
-
-#logo-tufarmacity {
-    max-height: 40px;
-}
-
-.header-divider-farmacity {
-    height: 5px;
-    width: 100%;
-    background-color: orangered;
-}
-
-/* Estilos para la tabla */
-#titulo-medicamento-farmacity {
-    padding-top: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-#medicamentos-table-farmacity {
-    margin-top: -10px;
-}
-
 /* Estilos para el formulario */
 .formulario-farmacity {
     max-width: 400px;
     background-color: #f9f9f9;
-    border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     text-align: center;
+    margin-top: 3px;
 }
 
 .campo-farmacity {
@@ -144,3 +82,13 @@ form#gestion-empleado-farmacity {
     color: #076bd6;
 }
 
+.btn-delete-empleado {
+    color: gray;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 100ms all;
+}
+
+.btn-delete-empleado:hover {
+    color: red;
+}

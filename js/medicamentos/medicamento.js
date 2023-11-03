@@ -56,7 +56,7 @@ function ListarMedicamentos(){
         const divNoMedicamentos = document.getElementById("alert-noMedicamentos")
         divNoMedicamentos.innerHTML = `
             <div id="alert" class="alertpr"> 
-            <i class="fa-solid fa-cat"></i> No hay productos disponibles
+            <i class="fa-solid fa-cat"></i> No hay medicamentos disponibles
             </div>
         `
     }else{
@@ -234,7 +234,7 @@ function ListarMedicamentosAdmin(){
         const divNoProducts = document.getElementById("alert-noProducts")
         divNoProducts.innerHTML = `
         <div id="alert" class="alertpr"> 
-            <i class="fa-solid fa-cat"></i> No hay productos disponibles
+            <i class="fa-solid fa-cat"></i> No hay medicamentos disponibles
         </div>
         `
     }else{
